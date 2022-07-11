@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  img {
+    @apply max-w-none;
+  }
+  li {
+    @apply w-full;
+  }
+}
+
+@layer components {
+  .modal-container {
+    @apply fixed inset-x-0 bg-white rounded-lg p-6 z-50;
+    /* Center fixed el */
+    @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    @apply sm:w-[calc(100%-48px)] md:w-[calc(84%-48px)] lg:w-[calc(52%-48px)];
+  }
+  .signin-container {
+    @apply fixed inset-x-0 bg-white rounded-3xl p-6 z-50;
+    /* Center fixed el */
+    @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    @apply sm:w-[calc(100%-48px)] md:w-[calc(84%-48px)] lg:w-[calc(30%-48px)];
+  }
+  .btn-search {
+    @apply flex justify-center bg-[#E8E8E8] w-[70px] h-[53px] rounded-2xl text-white font-medium text-xs leading-tight shadow-md  hover:shadow-lg;
+    @apply focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out items-center;
+  }
+  .navbar-header {
+    @apply sticky h-[92px] transition-all left-0 right-0 top-0 bg-white justify-center;
+    @apply flex flex-shrink-0 flex-col items-stretch max-w-[100%] min-h-0 min-w-0 align-baseline basis-auto;
+  }
+  .btn-secondary {
+    @apply px-7 py-3 sm:px-4 bg-black text-white rounded-lg font-semibold;
+  }
+  .input-search {
+    @apply relative flex-auto min-w-0 block w-full rounded-xl px-3 py-[13px] pl-[50px] text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-black focus:border-2 focus:outline-none;
+  }
+  .navbar-search_open {
+    @apply flex justify-center items-center relative z-[90] w-full;
+  }
+  .hamburger-menu_open {
+    @apply flex flex-col fixed items-center w-[20%] sm:w-[100%] right-[0px] top-0 h-[100vh] transition-all p-6 bg-white text-subtitle font-semibold z-0 shadow-shadowbox;
+  }
+  .hamburger-menu_lg {
+    @apply flex-row gap-x-6 static items-center shadow-none py-0;
+  }
+  .hamburger-menu_open .hidden-icon {
+    @apply hidden;
+  }
+  .hamburger-menu_md .hidden-icon {
+    @apply block;
+  }
+  .profile-menu {
+    @apply flex flex-col gap-y-6 p-4 sm:w-[60%] md:w-[40%] lg:w-[20%] absolute top-[92px] right-0 bg-white lg:items-center text-subtitle font-semibold shadow-shadowbox lg:shadow-none;
+  }
+  .btn-infomation_user {
+    @apply flex flex-row gap-x-3 items-center;
+  }
+  .margin-top {
+    @apply mt-[150px];
+  }
+  .gheDangDat {
+    @apply bg-green-600;
+  }
+  .ghe {
+    @apply border-2 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] lg:m-3 sm:m-1 text-xs rounded-lg font-semibold bg-[rgb(123,122,122)];
+  }
+  .btn-primary {
+    @apply px-7 py-3 sm:px-4 bg-[#2A45CB] text-white hover:text-white hover:bg-[#1F3398] rounded-lg font-semibold transition-all;
+  }
+  .width {
+    @apply w-[100%] mx-auto max-w-[1500px];
+  }
+  .modal-container {
+    @apply fixed inset-x-0 bg-white rounded-lg p-6 z-50;
+    @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    @apply sm:w-[calc(100%-8px)] md:w-[calc(84%-48px)] lg:w-[calc(62%-48px)];
+  }
+  .trailer > div {
+    @apply w-full h-[60vh] sm:h-[40vh] !important;
+  }
+  .portal-root {
+    @apply fixed top-0 left-0 overflow-hidden block bg-[rgba(0,0,0,0.8)] z-[200] h-full w-full;
+  }
+  .modal-content {
+    @apply flex flex-col z-[500];
+    @apply max-h-[75vh] overflow-y-auto;
+  }
+
+  .modal__button-close {
+    @apply absolute top-[8px] right-[8px];
+    @apply h-auto rounded-lg items-start !important;
+    @apply p-2;
+  }
+  .container-payment {
+    @apply rounded-lg py-6 border-2 shadow-lg;
+    @apply sm:w-[calc(100%-8px)] md:w-[calc(84%-48px)] lg:w-[calc(62%-48px)];
+  }
+  .btn-delete {
+    @apply px-7 py-3 bg-[#FB2347] text-white hover:bg-[#D90429] rounded-lg font-semibold transition-all;
+  }
+
+  .slick-list {
+    @apply w-auto !important;
+  }
+}
