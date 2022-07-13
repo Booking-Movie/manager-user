@@ -17,5 +17,5 @@ export const BOOKING_FINISH = 'BOOKING_FINISH'
 export const GET_ALL_BOOKING = 'GET_ALL_BOOKING'
 export const GET_ALL_SEEMORE = 'GET_ALL_SEEMORE'
 export const SEARCH_RESULT = 'SEARCH_RESULT'
-
+export const SIGNIN_ERROR = 'SIGNIN_ERROR'
 export const GET_ALL_NEW = 'GET_ALL_NEW'

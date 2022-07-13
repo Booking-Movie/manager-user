@@ -9,16 +9,13 @@ import { InfoTicket } from '../../_core/model'
 import { Button } from '../Button'
 
 const InfoMovie = props => {
-  console.log('🚀 ~ file: index.js ~ line 12 ~ props', props)
   const dispatch = useDispatch()
   const history = useHistory()
   const { infoMovie, danhSachGheDangDat } = useSelector(state => state.ManagerMovieReducer)
-  console.log('🚀 ~ file: index.js ~ line 15 ~ infoMovie', infoMovie)
 
   const { userLogin } = useSelector(state => state.ManagerAuthReducer)
   const { username } = userLogin.payload
   const { cinema_id, movie_id, id } = props.cinema
-  console.log('🚀 ~ file: index.js ~ line 21 ~ movie_id', movie_id)
   useEffect(() => {
     dispatch(getInfoMovieAction(id))
   }, [dispatch, cinema_id, movie_id, id])

@@ -1,5 +1,11 @@
 import { TOKEN, USER_LOGIN } from '../../../util/setting/config'
-import { DETAIL_MOVIE, GET_DETAIL_USER, REMOVE_USER, SIGN_IN_ACTION } from '../../Action/Action_Type/movie'
+import {
+  DETAIL_MOVIE,
+  GET_DETAIL_USER,
+  REMOVE_USER,
+  SIGNIN_ERROR,
+  SIGN_IN_ACTION
+} from '../../Action/Action_Type/movie'
 
 let user = {}
 if (localStorage.getItem(USER_LOGIN)) {
@@ -22,6 +28,9 @@ const ManagerAuthReducer = (state = stateDefault, { type, payload }) => {
     case GET_DETAIL_USER: {
       state.detailUser = payload
       return { ...state }
+    }
+    case SIGNIN_ERROR: {
+      return payload
     }
     case REMOVE_USER: {
       localStorage.removeItem(TOKEN)

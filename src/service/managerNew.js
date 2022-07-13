@@ -8,6 +8,9 @@ export class ManagerNewsService extends baseService {
   getAllNew = () => {
     return this.get(`api/v1/news`)
   }
+  cancelBooking = username => {
+    return this.put(`api/v1/booking/${username}`)
+  }
 }
 
 export const managerNewsService = new ManagerNewsService()

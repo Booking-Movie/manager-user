@@ -3,16 +3,11 @@ import { NavLink, useHistory } from 'react-router-dom'
 import moment from 'moment'
 import Label from '../Label'
 import Select from '../Select'
-import axios from 'axios'
-import InputComponent from '../InputComponent'
 import { useEffect, useState } from 'react'
-import FilterDate from '../FilterDate'
 import { useMemo } from 'react'
-import FilterResult from '../FilterResult'
 
 const ItemShowTime = props => {
   const { filterCinema, handleSubmit, filteredList, handleSubmitDate } = props
-  console.log('🚀 ~ file: index.js ~ line 15 ~ filteredList', filteredList)
   const history = useHistory()
   const id = history.location.pathname.slice(14)
   const [cinema, setCinema] = useState('')
@@ -31,12 +26,10 @@ const ItemShowTime = props => {
       return filterDate
     }
     return filterDate.filter(item => {
-      console.log('🚀 ~ file: index.js ~ line 32 ~ getFilterDate ~ item', item)
       return item.show_time.start_date === selectDate
     })
   }
   var filteredDate = useMemo(getFilterDate, [selectDate, filterDate])
-  console.log('🚀 ~ file: index.js ~ line 32 ~ filteredDate', filteredDate)
 
   // const fetchTime = () => {
   //   axios({
@@ -56,13 +49,12 @@ const ItemShowTime = props => {
     if (cinema !== '') {
       handleSubmit(cinema)
     }
-    console.log('🚀 ~ file: index.js ~ line 57 ~ useEffect ~ cinema', cinema)
     // fetchTime()
   }, [id, cinema, handleSubmit])
   return (
     <>
       <div className="flex flex-row sm:flex-col gap-5 justify-between items-center mb-10">
-        <div className="flex flex-col gap-2 w-full items-center">
+        {/* <div className="flex flex-col gap-2 w-full items-center">
           <Label label="Select Movie Form City" />
           <Select>
             <option disabled value={'disabled'}>
@@ -77,7 +69,7 @@ const ItemShowTime = props => {
         <div className="flex flex-col gap-2 w-full items-center">
           <Label label="Select Movie Form Date" />
           <InputComponent type="date" />
-        </div>
+        </div> */}
         {/* <FilterDate handleFilterDate={date => handleFilterDate(date)} /> */}
         <div className="flex flex-col gap-2 w-full">
           <Label label="Select Movie Form Cinema" />

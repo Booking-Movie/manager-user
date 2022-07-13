@@ -3,7 +3,6 @@ import moment from 'moment'
 import { NavLink } from 'react-router-dom'
 
 const FilterResult = props => {
-  console.log('🚀 ~ file: index.js ~ line 2 ~ FilterResult ~ props', props)
   const { filteredDate } = props
 
   const day = new Date()
@@ -12,7 +11,6 @@ const FilterResult = props => {
   return (
     <>
       {filteredDate.map(item => {
-        console.log('🚀 ~ file: index.js ~ line 15 ~ {filteredDate.map ~ item', item)
         return (
           <>
             {_.sortBy(item.show_time, ['time_start'])

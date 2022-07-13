@@ -23,10 +23,8 @@ const Header = () => {
   const { searchResult } = useSelector(state => state.ManagerMovieReducer)
   const { avatar, username, id } = detailUser
   const [resultSearch, setResultSearch] = useState([])
-  console.log('🚀 ~ file: header.js ~ line 26 ~ Header ~ resultSearch', resultSearch)
 
   const onSearchSubmit = async term => {
-    console.log('🚀 ~ file: header.js ~ line 29 ~ Header ~ term', term)
     dispatch(getAllSearchResult(term))
     setOpenSearchResult(true)
   }

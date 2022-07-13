@@ -14,3 +14,12 @@ export const getAllNewAction = () => {
     }
   }
 }
+export const cancelSeatBookingAction = username => {
+  return async dispatch => {
+    try {
+      await managerNewsService.cancelBooking(username)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}

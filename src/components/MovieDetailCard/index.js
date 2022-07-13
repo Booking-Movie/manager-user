@@ -1,6 +1,5 @@
 const MovieEvaluate = props => {
   const { evaluate } = props
-  console.log('🚀 ~ file: index.js ~ line 2 ~ MovieDetailCard ~ props', props)
   return (
     <>
       {evaluate !== 10 || evaluate !== 9 || evaluate !== 9.5 || evaluate !== 8.5 ? (

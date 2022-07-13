@@ -12,9 +12,9 @@ const Signin = () => {
     username: '',
     password: ''
   })
-  // const [hasError, setHasError] = useState({
-  //   error: ''
-  // })
+  const [hasError, setHasError] = useState({
+    error: ''
+  })
   const dispatch = useDispatch()
   const history = useHistory()
   const handleChange = e => {
@@ -27,11 +27,12 @@ const Signin = () => {
 
   const handleSignin = async e => {
     e.preventDefault()
-    console.log('🚀 ~ file: index.js ~ line 36 ~ Signin ~ formData', formData)
-    await dispatch(signIn(formData, goToDashboard))
-    // if (action.toString().includes('401')) {
-    //   setHasError({ error: "401" })
-    // } else if (action.toString().includes('403')) {
+    const action = await dispatch(signIn(formData, goToDashboard))
+    if (action.toString().includes('403')) {
+      setHasError({ error: '403' })
+    }
+
+    // else if (action.toString().includes('403')) {
     //   setHasError({ error: "403" })
     // }
   }
@@ -63,13 +64,7 @@ const Signin = () => {
               <Label size="text-normal">Password</Label>
               <InputComponent type="password" name="password" onChange={handleChange} />
             </div>
-            {/* {hasError.error === '403' ? (
-              <div className="label-error">Username or password is incorrect.</div>
-            ) : hasError.error === '401' ? (
-              <div className="label-error">Unauthorized.</div>
-            ) : (
-              <></>
-            )} */}
+            {hasError.error === '403' ? <div className="label-error">Username or password is incorrect.</div> : <></>}
             <Button className="btn-primary self-stretch">
               <span className="text-base font-semibold">Sign in</span>
             </Button>

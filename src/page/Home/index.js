@@ -49,7 +49,6 @@ const Home = () => {
           <div className="grid grid-cols-12 gap-4 width">
             {newList
               .filter(item => {
-                console.log('🚀 ~ file: index.js ~ line 48 ~ {newList.filter ~ item', item)
                 return item.type_name === 'Movie'
               })
               .map(listNews => {

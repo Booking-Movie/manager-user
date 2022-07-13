@@ -18,7 +18,7 @@ const BookingPage = props => {
   const { newList } = useSelector(state => state.ManagerNewsReducer)
 
   const { id } = props.match.params
-  useEffect(() => { }, [dispatch, id])
+  useEffect(() => {}, [dispatch, id])
   useEffect(() => {
     dispatch(getDetailMovieAction(id))
     dispatch(getMovieDetailAction(id))
@@ -31,11 +31,9 @@ const BookingPage = props => {
           return <DetailMovie movie={movie} />
         })}
         <ShowTime detailMovie={detailMovie} id={id} />
-        <div className="flex items-center justify-center flex-row sm:flex-col md:flex-col px-10 md:px-10 sm:px-5 mt-5">
-          <h1 className="relative bottom-0 rotate-90 sm:rotate-0 md:rotate-0 sm:text-right text-3xl font-semibold sm:my-6 md:my-6">
-            PROMOTION
-          </h1>
-          <div className="width">
+        <div className="width">
+          <h1 className="px-3 text-3xl font-semibold my-6">PROMOTION</h1>
+          <div>
             <SimpleSlider newList={newList} />
           </div>
         </div>
@@ -44,7 +42,6 @@ const BookingPage = props => {
           <MovieSlider movies={moviesList} />
         </div> */}
       </div>
-
     </div>
   )
 }

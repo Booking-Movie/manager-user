@@ -1,6 +1,6 @@
 import { Redirect } from 'react-router-dom'
 import { managerAuthService } from '../../../service/managerAuth'
-import { GET_DETAIL_USER, REMOVE_USER, SIGN_IN_ACTION } from '../Action_Type/movie'
+import { GET_DETAIL_USER, REMOVE_USER, SIGNIN_ERROR, SIGN_IN_ACTION } from '../Action_Type/movie'
 import { createAction } from '../Type'
 
 export const signIn = (formData, callBack) => {
@@ -12,7 +12,7 @@ export const signIn = (formData, callBack) => {
         callBack()
       }
     } catch (error) {
-      // dispatch(createAction(SIGNIN_ERROR, error))
+      dispatch(createAction(SIGNIN_ERROR, error))
       return error
     }
   }

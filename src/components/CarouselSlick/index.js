@@ -86,7 +86,7 @@ export const SimpleSlider = props => {
         })
         .map(listNews => {
           return (
-            <div className='px-3'>
+            <div className="px-3">
               <div id="carousel" className="p-4 border-2 bg-gray-100 rounded-tl-3xl rounded-br-3xl">
                 <button
                   onClick={handleShowEditNewModal}
@@ -160,9 +160,9 @@ export const MovieSlider = props => {
   }, [])
   return (
     <Slider {...settings}>
-      {movies.map((movies) => {
+      {movies.map(movies => {
         return (
-          <div className='px-3'>
+          <div className="px-3">
             <MovieCard movie={movies} />
           </div>
         )

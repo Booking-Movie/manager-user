@@ -112,4 +112,7 @@
   .slick-list {
     @apply w-auto !important;
   }
+  .label-error {
+    @apply px-2 py-1 text-[#FB7185] bg-[#FEDBE0] rounded-[4px];
+  }
 }

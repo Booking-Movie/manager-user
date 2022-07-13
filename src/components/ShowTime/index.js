@@ -6,16 +6,12 @@ import ItemShowTime from '../ItemShowtime'
 
 const ShowTime = props => {
   const { id } = props
-  console.log('🚀 ~ file: index.js ~ line 9 ~ id', id)
-  console.log('🚀 ~ file: index.js ~ line 9 ~ props', props.id)
   const { detailMovie } = props
   const { userLogin } = useSelector(state => state.ManagerAuthReducer)
   const [filterCinema, setFilterCinema] = useState([])
   const [selectCinema, setSelectCinema] = useState('')
-  console.log('🚀 ~ file: index.js ~ line 12 ~ filterCinema', filterCinema)
 
   const handleSubmit = async cinema => {
-    console.log('🚀 ~ file: index.js ~ line 21 ~ cinema', cinema)
     setSelectCinema(cinema)
   }
   function getFilteredList() {
@@ -26,7 +22,6 @@ const ShowTime = props => {
   }
 
   const filterList = getFilteredList()
-  console.log('🚀 ~ file: index.js ~ line 28 ~ filterList', filterList)
   var filteredList = useMemo(getFilteredList, [selectCinema, filterCinema])
   useEffect(() => {
     const fetchMovie = () => {
@@ -35,7 +30,6 @@ const ShowTime = props => {
         method: 'GET'
       })
         .then(res => {
-          console.log('🚀 ~ file: index.js ~ line 29 ~ fetchMovie ~ res', res.data)
           setFilterCinema(res.data)
         })
         .catch(err => {

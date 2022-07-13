@@ -1,17 +1,23 @@
 import moment from 'moment'
 import { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { NavLink, Redirect, useHistory } from 'react-router-dom'
 import { getAllBookingAction } from '../../redux/Action/Movie_Action'
+import { cancelSeatBookingAction } from '../../redux/Action/New_Action'
 import { Button } from '../Button'
 import InfoBooking from '../InfoBooking'
 
 const Payment = props => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const { listAllBooking } = useSelector(state => state.ManagerMovieReducer)
   const { userLogin } = useSelector(state => state.ManagerAuthReducer)
 
   const handleSubmit = info => {
     console.log(info)
+  }
+  const handleCancelBooking = username => {
+    dispatch(cancelSeatBookingAction(username))
   }
   const { id } = props.match.params
   useEffect(() => {
@@ -75,7 +81,13 @@ const Payment = props => {
               <span>{info.total}</span>
             </div>
             <div className="flex justify-between gap-5">
-              <Button className="btn-delete w-full">Cancel</Button>
+              <NavLink
+                onClick={handleCancelBooking(info.username)}
+                className="btn-delete w-full"
+                to={`/booking-page/seat/${listAllBooking[0].showtime_id}`}
+              >
+                <Button className="text-center">Cancel</Button>
+              </NavLink>
               <Button onClick={handleSubmit(info)} className="btn-primary w-full">
                 Payment
               </Button>

@@ -7,7 +7,6 @@ import { getAllNewAction } from '../../redux/Action/New_Action'
 const NewsPage = props => {
   const dispatch = useDispatch()
   const { newList } = useSelector(state => state.ManagerNewsReducer)
-  console.log('🚀 ~ file: index.js ~ line 8 ~ NewsPage ~ newList', newList)
   useEffect(() => {
     dispatch(getAllNewAction())
   }, [])
@@ -18,7 +17,6 @@ const NewsPage = props => {
         <div className="grid grid-cols-12 gap-4">
           {newList
             .filter(item => {
-              console.log('🚀 ~ file: index.js ~ line 48 ~ {newList.filter ~ item', item)
               return item.type_name === 'Movie'
             })
             .map(listNews => {
@@ -36,7 +34,6 @@ const NewsPage = props => {
         <div className="grid grid-cols-12 gap-4">
           {newList
             .filter(item => {
-              console.log('🚀 ~ file: index.js ~ line 48 ~ {newList.filter ~ item', item)
               return item.type_name === 'Discount '
             })
             .map(listNews => {
@@ -54,7 +51,6 @@ const NewsPage = props => {
         <div className="grid grid-cols-12 gap-4">
           {newList
             .filter(item => {
-              console.log('🚀 ~ file: index.js ~ line 48 ~ {newList.filter ~ item', item)
               return item.type_name === 'Recruit'
             })
             .map(listNews => {
