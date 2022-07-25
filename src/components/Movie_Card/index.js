@@ -1,13 +1,12 @@
 import { useCallback, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Modal from '../Modal'
-import Trailer from '../Trailer'
 import ReactPlayer from 'react-player'
 import movieTrailer from 'movie-trailer'
 import './card.css'
 
 const MovieCard = props => {
-  const { id, name_movie, nation, image_movie, trailer, status_movie } = props.movie
+  const { id, name_movie, nation, image_movie, trailer } = props.movie
   const [showEditMovieModal, setShowEditMovieModal] = useState(false)
   const [trailerURL, setTrailerURL] = useState(trailer)
   const handleShowEditMovieModal = useCallback(() => {
@@ -22,7 +21,7 @@ const MovieCard = props => {
         })
         .catch(error => console.log(error))
     }
-  }, [showEditMovieModal])
+  }, [showEditMovieModal, trailer, trailerURL])
   const handleCloseEditMovieModal = useCallback(() => {
     setShowEditMovieModal(false)
   }, [])

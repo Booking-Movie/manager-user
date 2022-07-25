@@ -1,11 +1,5 @@
 import { TOKEN, USER_LOGIN } from '../../../util/setting/config'
-import {
-  DETAIL_MOVIE,
-  GET_DETAIL_USER,
-  REMOVE_USER,
-  SIGNIN_ERROR,
-  SIGN_IN_ACTION
-} from '../../Action/Action_Type/movie'
+import { GET_DETAIL_USER, REMOVE_USER, SIGNIN_ERROR, SIGN_IN_ACTION } from '../../Action/Action_Type/movie'
 
 let user = {}
 if (localStorage.getItem(USER_LOGIN)) {

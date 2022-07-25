@@ -1,12 +1,10 @@
 import { useCallback, useState } from 'react'
-import { NavLink } from 'react-router-dom'
 import InfoNew from '../InfoNew'
 import Modal from '../Modal'
-import NewInfoCard from '../NewInfoCard'
 
 const NewInfoList = props => {
   console.log('🚀 ~ file: index.js ~ line 8 ~ props', props)
-  const { new_body, new_conclusion, new_image, new_introduction, new_title, type_name, new_id } = props.newItem
+  const { new_image, new_introduction, new_title } = props.newItem
   const [showEditNewModal, setShowEditNewModal] = useState(false)
   const handleShowEditNewModal = useCallback(() => {
     setShowEditNewModal(!showEditNewModal)
@@ -46,9 +44,3 @@ const NewInfoList = props => {
 }
 
 export default NewInfoList
-
-// {
-//   news.slice(0, 8).map(newItem => {
-//     return <NewInfoCard key={newItem.new_id} newItem={newItem} />
-//   })
-// }

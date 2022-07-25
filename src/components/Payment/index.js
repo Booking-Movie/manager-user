@@ -1,18 +1,14 @@
 import moment from 'moment'
-import { Fragment, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, Redirect, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { getAllBookingAction } from '../../redux/Action/Movie_Action'
 import { cancelSeatBookingAction } from '../../redux/Action/New_Action'
 import { Button } from '../Button'
-import InfoBooking from '../InfoBooking'
 
 const Payment = props => {
   const dispatch = useDispatch()
-  const history = useHistory()
   const { listAllBooking } = useSelector(state => state.ManagerMovieReducer)
-  const { userLogin } = useSelector(state => state.ManagerAuthReducer)
-
   const handleSubmit = info => {
     console.log(info)
   }

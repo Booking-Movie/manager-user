@@ -6,8 +6,6 @@ import ItemShowTime from '../ItemShowtime'
 
 const ShowTime = props => {
   const { id } = props
-  const { detailMovie } = props
-  const { userLogin } = useSelector(state => state.ManagerAuthReducer)
   const [filterCinema, setFilterCinema] = useState([])
   const [selectCinema, setSelectCinema] = useState('')
 
@@ -20,13 +18,11 @@ const ShowTime = props => {
     }
     return filterCinema?.filter(item => item.name_cinema === selectCinema)
   }
-
-  const filterList = getFilteredList()
   var filteredList = useMemo(getFilteredList, [selectCinema, filterCinema])
   useEffect(() => {
     const fetchMovie = () => {
       axios({
-        url: `http://localhost:7000/api/v1/movie-cinema/${id}`,
+        url: `http://localhost:7000/api/v1/cinema/filter-cinema/${id}`,
         method: 'GET'
       })
         .then(res => {

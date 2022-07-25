@@ -9,7 +9,7 @@ export class ManagerAuthService extends baseService {
     return this.post(`api/v1/auth/signin`, formData)
   }
   findDetailUser = id => {
-    return this.get(`api/v1/users/${id}`)
+    return this.get(`api/v1/users/detail/${id}`)
   }
 }
 

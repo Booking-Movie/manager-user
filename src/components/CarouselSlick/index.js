@@ -1,30 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useCallback, useState } from 'react'
 import Slider from 'react-slick'
-import { getAllNewAction } from '../../redux/Action/New_Action'
 import InfoNew from '../InfoNew'
 import Modal from '../Modal'
-import NewInfoList from '../NewInfoList'
-import * as Icon from 'react-feather'
 import MovieCard from '../Movie_Card'
-
-// function SampleNextArrow(props) {
-//   const { className, style, onClick } = props
-//   return (
-//     <div className="absolute right-[-55px] top-[50%] translate-y-[-50%]" onClick={onClick}>
-//       <Icon.ChevronRight size={68} />
-//     </div>
-//   )
-// }
-
-// function SamplePrevArrow(props) {
-//   const { onClick } = props
-//   return (
-//     <div className="absolute left-[-55px] top-[50%] translate-y-[-50%]" onClick={onClick}>
-//       <Icon.ChevronLeft size={68} />
-//     </div>
-//   )
-// }
 
 export const SimpleSlider = props => {
   const { newList } = props
@@ -151,13 +129,6 @@ export const MovieSlider = props => {
       }
     ]
   }
-  const [showEditNewModal, setShowEditNewModal] = useState(false)
-  const handleShowEditNewModal = useCallback(() => {
-    setShowEditNewModal(!showEditNewModal)
-  }, [showEditNewModal])
-  const handleCloseEditNewModal = useCallback(() => {
-    setShowEditNewModal(false)
-  }, [])
   return (
     <Slider {...settings}>
       {movies.map(movies => {

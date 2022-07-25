@@ -1,10 +1,8 @@
 import moment from 'moment'
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Redirect, useHistory } from 'react-router-dom'
-import { LIST_BOOKING } from '../../redux/Action/Action_Type/movie'
+import { useHistory } from 'react-router-dom'
 import { bookingTicketAction, getInfoMovieAction } from '../../redux/Action/Movie_Action'
-import { createAction } from '../../redux/Action/Type'
 import { InfoTicket } from '../../_core/model'
 import { Button } from '../Button'
 
@@ -40,18 +38,18 @@ const InfoMovie = props => {
           <>
             <h1 className="text-center font-semibold text-3xl">{info?.name_movie}</h1>
             <h1>
-              <span className="text-lg font-semibold word-wrap">Cinema Address: </span>
-              {info.address}
+              <span className="text-lg font-semibold word-wrap">Location: </span>
+              {`${info.name_cinema} - ${info.address}`}
             </h1>
             <h1>
               <span className="text-lg font-semibold">Theater: </span> {info.code_theater}
             </h1>
             <h1>
-              <span className="text-lg font-semibold">Time: </span> {moment(info.start_date).format('DD/MM/YYYY')}
+              <span className="text-lg font-semibold">Date: </span> {moment(info.start_date).format('MMM Do YY')}
             </h1>
             <h1>
-              <span className="text-lg font-semibold">Cinema Name: </span>
-              {info.name_cinema}
+              <span className="text-lg font-semibold">Time: </span>
+              {moment(info.time_start, 'HH:mm:ss').format('HH:mm')}
             </h1>
           </>
         )

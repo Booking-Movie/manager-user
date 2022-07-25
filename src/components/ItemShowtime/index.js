@@ -4,46 +4,17 @@ import moment from 'moment'
 import Label from '../Label'
 import Select from '../Select'
 import { useEffect, useState } from 'react'
-import { useMemo } from 'react'
+import { useSelector } from 'react-redux'
 
 const ItemShowTime = props => {
-  const { filterCinema, handleSubmit, filteredList, handleSubmitDate } = props
+  const { filterCinema, handleSubmit, filteredList } = props
   const history = useHistory()
   const id = history.location.pathname.slice(14)
   const [cinema, setCinema] = useState('')
-  const [date, setDate] = useState('')
-
+  const { userLogin } = useSelector(state => state.ManagerAuthReducer)
   const day = new Date()
   const newTime = moment(day, 'HH:mm:ss').format('HH:mm')
-  const [selectDate, setSelectDate] = useState('')
-  const [filterDate, setFilterDate] = useState([])
   const newDate = moment(day).format('DD/MM/YYYY')
-  const handleFilterDate = date => {
-    setSelectDate(date)
-  }
-  function getFilterDate() {
-    if (!selectDate && selectDate !== '') {
-      return filterDate
-    }
-    return filterDate.filter(item => {
-      return item.show_time.start_date === selectDate
-    })
-  }
-  var filteredDate = useMemo(getFilterDate, [selectDate, filterDate])
-
-  // const fetchTime = () => {
-  //   axios({
-  //     url: `http://localhost:7000/api/v1/search/filter/${id}`,
-  //     method: 'GET'
-  //   })
-  //     .then(res => {
-  //       console.log('🚀 ~ file: index.js ~ line 29 ~ fetchMovie ~ res', res)
-  //       setFilterDate(res.data)
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  // }
 
   useEffect(() => {
     if (cinema !== '') {
@@ -54,23 +25,6 @@ const ItemShowTime = props => {
   return (
     <>
       <div className="flex flex-row sm:flex-col gap-5 justify-between items-center mb-10">
-        {/* <div className="flex flex-col gap-2 w-full items-center">
-          <Label label="Select Movie Form City" />
-          <Select>
-            <option disabled value={'disabled'}>
-              {'Select movie from city'}
-            </option>
-            <option value="0">Ca Mau</option>
-            <option value="1">Binh Duong</option>
-            <option value="2">Binh Thuan</option>
-            <option value="3">Ninh Binh</option>
-          </Select>
-        </div>
-        <div className="flex flex-col gap-2 w-full items-center">
-          <Label label="Select Movie Form Date" />
-          <InputComponent type="date" />
-        </div> */}
-        {/* <FilterDate handleFilterDate={date => handleFilterDate(date)} /> */}
         <div className="flex flex-col gap-2 w-full">
           <Label label="Select Movie Form Cinema" />
           <Select onChange={e => setCinema(e.target.value)} value={cinema}>
@@ -110,16 +64,29 @@ const ItemShowTime = props => {
                               key={time.id}
                               className="gap-y-5 sm:col-span-4 md:col-span-2 lg:col-span-2 xl:col-span-1"
                             >
-                              <NavLink
-                                to={`/booking-page/seat/${time.id}`}
-                                className={`${
-                                  moment(time.time_start, 'HH:mm:ss').format('HH:mm') <= newTime
-                                    ? 'pointer-events-none text-gray-400'
-                                    : 'hover:bg-black hover:text-white hover:border-black'
-                                } rounded-lg tracking-[1px]  w-full px-2 py-2 text-lg text-black  font-semibold border-2 transition-colors button-tranform`}
-                              >
-                                {moment(time.time_start, 'HH:mm:ss').format('HH:mm')}
-                              </NavLink>
+                              {userLogin !== '' ? (
+                                <NavLink
+                                  to={`/booking-page/seat/${time.id}`}
+                                  className={`${
+                                    moment(time.time_start, 'HH:mm:ss').format('HH:mm') <= newTime
+                                      ? 'pointer-events-none text-gray-400'
+                                      : 'hover:bg-black hover:text-white hover:border-black'
+                                  } rounded-lg tracking-[1px]  w-full px-2 py-2 text-lg text-black  font-semibold border-2 transition-colors button-tranform`}
+                                >
+                                  {moment(time.time_start, 'HH:mm:ss').format('HH:mm')}
+                                </NavLink>
+                              ) : (
+                                <NavLink
+                                  to="/sign-in"
+                                  className={`${
+                                    moment(time.time_start, 'HH:mm:ss').format('HH:mm') <= newTime
+                                      ? 'pointer-events-none text-gray-400'
+                                      : 'hover:bg-black hover:text-white hover:border-black'
+                                  } rounded-lg tracking-[1px]  w-full px-2 py-2 text-lg text-black  font-semibold border-2 transition-colors button-tranform`}
+                                >
+                                  {moment(time.time_start, 'HH:mm:ss').format('HH:mm')}
+                                </NavLink>
+                              )}
                             </div>
                           ))}
                       </div>
@@ -148,16 +115,29 @@ const ItemShowTime = props => {
                               key={time.id}
                               className="gap-y-5 sm:col-span-4 md:col-span-2 lg:col-span-2 xl:col-span-1 "
                             >
-                              <NavLink
-                                to={`/booking-page/seat/${time.id}`}
-                                className={`${
-                                  moment(time.time_start, 'HH:mm:ss').format('HH:mm') < newTime
-                                    ? 'pointer-events-none text-gray-400'
-                                    : 'hover:bg-black hover:text-white hover:border-black'
-                                } rounded-lg tracking-[1px]  w-full px-2 py-2 text-lg text-black  font-semibold border-2 transition-colors button-tranform`}
-                              >
-                                {moment(time.time_start, 'HH:mm:ss').format('HH:mm')}
-                              </NavLink>
+                              {userLogin !== '' ? (
+                                <NavLink
+                                  to={`/booking-page/seat/${time.id}`}
+                                  className={`${
+                                    moment(time.time_start, 'HH:mm:ss').format('HH:mm') < newTime
+                                      ? 'pointer-events-none text-gray-400'
+                                      : 'hover:bg-black hover:text-white hover:border-black'
+                                  } rounded-lg tracking-[1px]  w-full px-2 py-2 text-lg text-black  font-semibold border-2 transition-colors button-tranform`}
+                                >
+                                  {moment(time.time_start, 'HH:mm:ss').format('HH:mm')}
+                                </NavLink>
+                              ) : (
+                                <NavLink
+                                  to="/sign-in"
+                                  className={`${
+                                    moment(time.time_start, 'HH:mm:ss').format('HH:mm') < newTime
+                                      ? 'pointer-events-none text-gray-400'
+                                      : 'hover:bg-black hover:text-white hover:border-black'
+                                  } rounded-lg tracking-[1px]  w-full px-2 py-2 text-lg text-black  font-semibold border-2 transition-colors button-tranform`}
+                                >
+                                  {moment(time.time_start, 'HH:mm:ss').format('HH:mm')}
+                                </NavLink>
+                              )}
                             </div>
                           ))}
                       </div>

@@ -8,8 +8,6 @@ import {
   GET_ALL_MOVIES_COMMING_SOON,
   GET_ALL_SEAT_IN_SHOWTIME,
   GET_ALL_SEEMORE,
-  GET_ALL_TIME_OF_MOVIE,
-  GET_ALL_TIME_OF_NOVIE,
   GET_DETAIL_MOVIE,
   INFO_MOVIE,
   SEARCH_RESULT
@@ -46,7 +44,7 @@ export const getAllMovieSeemoreAction = id => {
 export const getDetailMovieAction = id => {
   return async dispatch => {
     try {
-      const result = await managerMovieService.getMovieDetail(id)
+      const result = await managerMovieService.getDetailMovie(id)
       dispatch({
         type: GET_DETAIL_MOVIE,
         payload: result.data
@@ -80,10 +78,10 @@ export const getAllMovieCommingSoonAction = () => {
   }
 }
 
-export const getMovieDetailAction = id => {
+export const getAllTimeOfMovieAction = id => {
   return async dispatch => {
     try {
-      const result = await managerMovieService.getDetailMovie(id)
+      const result = await managerMovieService.getAllTimeOfMovie(id)
       dispatch({
         type: DETAIL_MOVIE,
         payload: result.data

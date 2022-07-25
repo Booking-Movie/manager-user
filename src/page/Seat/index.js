@@ -1,8 +1,6 @@
-import { set } from 'lodash'
 import { Fragment, memo, useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Button } from '../../components/Button'
 import InfoMovie from '../../components/InfoMovie'
 import { DAT_VE } from '../../redux/Action/Action_Type/movie'
 import { getAllSeatInShowtimeAction } from '../../redux/Action/Movie_Action'
@@ -14,7 +12,7 @@ const Seat = props => {
   console.log('🚀 ~ file: index.js ~ line 13 ~ seatList', seatList)
   const { userLogin } = useSelector(state => state.ManagerAuthReducer)
   const { id } = props.match.params
-  const [isStatus, setIsStatus] = useState('')
+
   useEffect(() => {
     dispatch(getAllSeatInShowtimeAction(id))
   }, [dispatch, id])

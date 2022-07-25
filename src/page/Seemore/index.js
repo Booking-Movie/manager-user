@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import MovieList from '../../components/MovieList'
 import SeemoreList from '../../components/SeemoreList'
 import { getAllMovieSeemoreAction } from '../../redux/Action/Movie_Action'
 

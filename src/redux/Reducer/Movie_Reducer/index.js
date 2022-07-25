@@ -1,27 +1,19 @@
-import { TICKET } from '../../../util/setting/config'
 import {
   BOOKING_FINISH,
   DAT_VE,
   DETAIL_MOVIE,
   GET_ALL_BOOKING,
   GET_ALL_MOVIES,
-  GET_ALL_MOVIES_COMMING_SOON,
   GET_ALL_SEAT_IN_SHOWTIME,
   GET_ALL_SEEMORE,
-  GET_ALL_TIME_OF_MOVIE,
   GET_DETAIL_MOVIE,
-  GET_MOVIES_COMMING_SOON,
-  GET_MOVIES_NOW_COMMING,
   INFO_MOVIE,
   LIST_BOOKING,
   SEARCH_RESULT
 } from '../../Action/Action_Type/movie'
-import { createAction } from '../../Action/Type'
 
 const stateDefault = {
   moviesList: [],
-  sapChieu: 'Comming Soon',
-  dangChieu: 'Now Showing',
   moviesDefault: [],
   detailMovie: {},
   seatList: [],
@@ -33,17 +25,20 @@ const stateDefault = {
   listBooking: [],
   listAllBooking: [],
   seeMore: [],
-  searchResult: []
+  searchResult: [],
+  movieCommingList: [],
+  movieShowingList: []
 }
 const ManagerMovieReducer = (state = stateDefault, { type, payload }) => {
   switch (type) {
     case GET_ALL_MOVIES: {
       state.moviesList = payload
-      return { ...state }
-    }
-    case GET_MOVIES_NOW_COMMING: {
-      state.dangChieu = !state.dangChieu
-      state.moviesList = state.moviesDefault.filter(film => film.dangChieu === state.dangChieu)
+      state.movieCommingList = state.moviesList.filter(soon => {
+        return soon.status_movie === 'CommingSoon'
+      })
+      state.movieShowingList = state.moviesList.filter(now => {
+        return now.status_movie === 'NowShowing'
+      })
       return { ...state }
     }
     case GET_DETAIL_MOVIE: {
@@ -52,10 +47,6 @@ const ManagerMovieReducer = (state = stateDefault, { type, payload }) => {
     }
     case GET_ALL_SEAT_IN_SHOWTIME: {
       state.seatList = payload
-      return { ...state }
-    }
-    case GET_ALL_MOVIES_COMMING_SOON: {
-      state.commingSoonList = payload
       return { ...state }
     }
     case INFO_MOVIE: {

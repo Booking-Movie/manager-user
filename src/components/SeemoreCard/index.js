@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Modal from '../Modal'
-import Trailer from '../Trailer'
 import ReactPlayer from 'react-player'
 import movieTrailer from 'movie-trailer'
 import './card.css'

@@ -1,4 +1,3 @@
-import moment from 'moment'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import InputComponent from '../InputComponent'

@@ -1,9 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { NavLink, useHistory } from 'react-router-dom'
-import { GET_MOVIES_COMMING_SOON } from '../../redux/Action/Action_Type/movie'
-import MovieCard from '../Movie_Card'
+import React from 'react'
 import SeemoreCard from '../SeemoreCard'
 import './card.css'
 

@@ -11,7 +11,7 @@ import { getAllNewAction } from '../../redux/Action/New_Action'
 
 const Home = () => {
   const dispatch = useDispatch()
-  const { moviesList, commingSoonList } = useSelector(state => state.ManagerMovieReducer)
+  const { movieCommingList, movieShowingList } = useSelector(state => state.ManagerMovieReducer)
   const { newList } = useSelector(state => state.ManagerNewsReducer)
 
   console.log('🚀 ~ file: index.js ~ line 15 ~ Home ~ newList', newList)
@@ -27,7 +27,7 @@ const Home = () => {
       </div>
       <div className="px-20 md:px-10 sm:px-5">
         <h1 className="font-semibold text-heading-4">NOW SHOWING</h1>
-        <MovieList movies={moviesList} />
+        <MovieList movies={movieShowingList} />
         <div className="text-center mt-4 font-semibold text-lg hover:">
           <NavLink exact to={`seemore/?NowShowing`.replace(/ /g, ``)}>
             <button className="btn-secondary">See All Now Showing</button>
@@ -36,7 +36,7 @@ const Home = () => {
       </div>
       <div className="px-20 md:px-10 sm:px-5 mt-20">
         <h1 className="font-semibold text-heading-4">COMMING SOON</h1>
-        <MovieList movies={commingSoonList} />
+        <MovieList movies={movieCommingList} />
         <div className="text-center mt-4 font-semibold text-lg hover:">
           <NavLink exact to={`seemore/?CommingSoon`.replace(/ /g, ``)}>
             <button className="btn-secondary">See All Now Showing</button>

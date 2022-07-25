@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 const InfoNew = props => {
   console.log('🚀 ~ file: index.js ~ line 2 ~ InfoNew ~ props', props)
-  const { new_body, new_conclusion, new_image, new_introduction, new_title, type_name, new_id } = props.newInfo
+  const { new_body, new_conclusion, new_image, new_introduction } = props.newInfo
   return (
     <>
       <div className="flex flex-col gap-5">

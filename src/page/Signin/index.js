@@ -5,7 +5,6 @@ import { Button } from '../../components/Button'
 import InputComponent from '../../components/InputComponent'
 import Label from '../../components/Label'
 import { signIn } from '../../redux/Action/Auth_Action'
-import { TOKEN, USER_LOGIN } from '../../util/setting/config'
 
 const Signin = () => {
   const [formData, setFromData] = useState({

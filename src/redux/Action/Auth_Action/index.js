@@ -1,4 +1,3 @@
-import { Redirect } from 'react-router-dom'
 import { managerAuthService } from '../../../service/managerAuth'
 import { GET_DETAIL_USER, REMOVE_USER, SIGNIN_ERROR, SIGN_IN_ACTION } from '../Action_Type/movie'
 import { createAction } from '../Type'

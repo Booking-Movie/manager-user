@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable react/jsx-no-undef */
-import React, { Fragment, memo, useEffect, useMemo } from 'react'
+import React, { Fragment, memo, useEffect } from 'react'
 import { useState } from 'react'
 import * as Icon from 'react-feather'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, Redirect, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import LinkComponents from '../../components/LinkComponent'
 import { getDetailUser, signOut } from '../../redux/Action/Auth_Action'
-import _, { flatMap } from 'lodash'
+import _ from 'lodash'
 import { getAllSearchResult } from '../../redux/Action/Movie_Action'
 import Search from '../../page/Search'
 import SearchResult from '../../components/SearchResult'
@@ -22,7 +22,6 @@ const Header = () => {
   const { userLogin, detailUser } = useSelector(state => state.ManagerAuthReducer)
   const { searchResult } = useSelector(state => state.ManagerMovieReducer)
   const { avatar, username, id } = detailUser
-  const [resultSearch, setResultSearch] = useState([])
 
   const onSearchSubmit = async term => {
     dispatch(getAllSearchResult(term))
@@ -105,9 +104,8 @@ const Header = () => {
             </div>
             <Search onSearchSubmit={term => onSearchSubmit(term)} clearResults={term => clearResults(term)} />
             <div
-              className={`flex flex-col gap-5 absolute w-[480px] top-[72px] max-h-[350px] h-auto sm:w-[100%]  overflow-auto transition-all p-6 bg-white text-subtitle font-semibold z-0 shadow-lg ${
-                openSearchResult ? '' : 'hidden'
-              } `}
+              className={`flex flex-col gap-5 absolute w-[480px] top-[72px] max-h-[350px] h-auto sm:w-[100%]  overflow-auto transition-all p-6 bg-white text-subtitle font-semibold z-0 shadow-lg ${openSearchResult ? '' : 'hidden'
+                } `}
             >
               {searchResult.map(result => {
                 return <SearchResult result={result} />

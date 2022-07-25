@@ -6,22 +6,19 @@ export class ManagerMovieService extends baseService {
     super()
   }
   getAllMovie = () => {
-    return this.get(`api/v1/movie`)
+    return this.get(`api/v1/movie/find-all-movie`)
   }
-  getAllMovieCommingSoon = () => {
-    return this.get(`api/v1/movie/soon`)
-  }
-  getMovieDetail = id => {
-    return this.get(`api/v1/movie-cinema/${id}`)
+  getAllTimeOfMovie = id => {
+    return this.get(`api/v1/showtime/time-of-movie/${id}`)
   }
   getAllSeatInShowtime = id => {
     return this.get(`api/v1/showtime/${id}`)
   }
   getDetailMovie = id => {
-    return this.get(`api/v1/movie/detail/${id}`)
+    return this.get(`api/v1/movie/movie-detail/${id}`)
   }
   getInfoMovie = id => {
-    return this.get(`api/v1/info-movie/${id}`)
+    return this.get(`api/v1/movie/info-movie/${id}`)
   }
   createBooking = form => {
     return this.post(`api/v1/booking`, form)
