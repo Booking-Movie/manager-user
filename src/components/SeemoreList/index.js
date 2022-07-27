@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import SeemoreCard from '../SeemoreCard'
-import './card.css'
 
 const SeemoreList = props => {
   const { movies } = props

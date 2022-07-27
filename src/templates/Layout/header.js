@@ -32,7 +32,6 @@ const Header = () => {
       setOpenSearchResult(false)
     }
   }
-
   useEffect(() => {
     if (_.isEmpty(userLogin)) {
       return ''
@@ -104,8 +103,9 @@ const Header = () => {
             </div>
             <Search onSearchSubmit={term => onSearchSubmit(term)} clearResults={term => clearResults(term)} />
             <div
-              className={`flex flex-col gap-5 absolute w-[480px] top-[72px] max-h-[350px] h-auto sm:w-[100%]  overflow-auto transition-all p-6 bg-white text-subtitle font-semibold z-0 shadow-lg ${openSearchResult ? '' : 'hidden'
-                } `}
+              className={`flex flex-col gap-5 absolute w-[480px] top-[72px] max-h-[350px] h-auto sm:w-[100%]  overflow-auto transition-all p-6 bg-white text-subtitle font-semibold z-0 shadow-lg ${
+                openSearchResult ? '' : 'hidden'
+              } `}
             >
               {searchResult.map(result => {
                 return <SearchResult result={result} />

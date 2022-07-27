@@ -28,27 +28,22 @@ const MovieCard = props => {
 
   return (
     <>
-      <div className="gap-y-5 h-[240px] sm:col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 overflow-hidden relative justify-end cursor-pointer capitalize rounded-md bg-red-500 object-cover text-white  mb-5 card-tranform__parent">
+      <div className="card card-tranform__parent">
         <div className="carousel-image"></div>
         <img src={image_movie} className="w-full h-full relative" alt="desktop" />
-        <div className="absolute p-2 gap-y-5 flex h-[80%] sm:h-[85%] card-trainform w-full top-[200px]">
-          <div className="absolute w-[85%] left-0 bottom-[60px] p-2">
-            <h1 className="text-xl font-semibold">{name_movie.toUpperCase()}</h1>
-            <h3 className="text-sm font-medium my-2">
+        <div className="card-content card-trainform">
+          <div className="card-info">
+            <h1 className="card-info_title">{name_movie.toUpperCase()}</h1>
+            <h3 className="card-info_nation">
               NATION: {nation}
               <i className="fas fa-dharmachakra"></i>
             </h3>
           </div>
-          <div className="absolute bottom-0 w-full flex p-[10px] gap-x-3 left-0">
+          <div className="card-action">
             <NavLink to={`booking-page/${id}`} className="btn m-0">
-              <button className="w-[100%]  px-2 py-3 text-xs text-black font-semibold bg-[#FFFFFF] rounded-xl ">
-                BOOKING TICKETS
-              </button>
+              <button className="card-action_info">BOOKING TICKETS</button>
             </NavLink>
-            <button
-              onClick={handleShowEditMovieModal}
-              className="btn m-0 w-[100%]  px-2 py-3  text-xs text-black font-semibold bg-[#FFFFFF] rounded-xl"
-            >
+            <button onClick={handleShowEditMovieModal} className="btn m-0 w-[100%] card-action_info">
               PLAY TRAILER
             </button>
             {showEditMovieModal && (

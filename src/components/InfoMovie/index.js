@@ -36,19 +36,19 @@ const InfoMovie = props => {
       {infoMovie.map(info => {
         return (
           <>
-            <h1 className="text-center font-semibold text-3xl">{info?.name_movie}</h1>
+            <h1 className="text-center text-3xl">{info?.name_movie}</h1>
             <h1>
               <span className="text-lg font-semibold word-wrap">Location: </span>
               {`${info.name_cinema} - ${info.address}`}
             </h1>
             <h1>
-              <span className="text-lg font-semibold">Theater: </span> {info.code_theater}
+              <span className="text-lg">Theater: </span> {info.code_theater}
             </h1>
             <h1>
-              <span className="text-lg font-semibold">Date: </span> {moment(info.start_date).format('MMM Do YY')}
+              <span className="text-lg ">Date: </span> {moment(info.start_date).format('MMM Do YY')}
             </h1>
             <h1>
-              <span className="text-lg font-semibold">Time: </span>
+              <span className="text-lg ">Time: </span>
               {moment(info.time_start, 'HH:mm:ss').format('HH:mm')}
             </h1>
           </>

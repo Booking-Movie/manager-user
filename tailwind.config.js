@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        shadowbox: '2px 15px 20px  rgba(0, 0, 0, 0.1)'
+        shadowbox: '2px 15px 20px  rgba(0, 0, 0, 0.1)',
+        shadow_1: '0 5px 13px rgb(0, 0, 0,0.7)'
       },
       screens: {
         sm: { max: '767px' },

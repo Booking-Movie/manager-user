@@ -1,4 +1,4 @@
-import { Fragment, memo, useState } from 'react'
+import { Fragment, memo } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import InfoMovie from '../../components/InfoMovie'

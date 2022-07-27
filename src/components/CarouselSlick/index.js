@@ -85,6 +85,7 @@ export const SimpleSlider = props => {
 }
 
 export const MovieSlider = props => {
+  console.log('🚀 ~ file: index.js ~ line 88 ~ props', props)
   const { movies } = props
   var settings = {
     dots: true,
@@ -133,7 +134,7 @@ export const MovieSlider = props => {
     <Slider {...settings}>
       {movies.map(movies => {
         return (
-          <div className="px-3">
+          <div className="slider-movie">
             <MovieCard movie={movies} />
           </div>
         )

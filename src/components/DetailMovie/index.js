@@ -51,7 +51,7 @@ const DetailMovie = props => {
               <h2 className="font-semibold ">Time Show:</h2>
               <p>{movie.time_show}</p>
             </div>
-            <div className="flex flex-row gap-x-2 items-center justify-center ">
+            <div className="flex flex-row gap-x-2 items-center justify-center">
               <h2 className="font-semibold ">Evaluate:</h2>
               <p>
                 <MovieEvaluate evaluate={movie} />

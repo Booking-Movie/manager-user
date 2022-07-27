@@ -1,7 +1,5 @@
 import axios from 'axios'
-import _ from 'lodash'
 import { useEffect, useMemo, useState } from 'react'
-import { useSelector } from 'react-redux'
 import ItemShowTime from '../ItemShowtime'
 
 const ShowTime = props => {
