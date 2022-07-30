@@ -13,6 +13,8 @@ import NewsPage from './page/News'
 import AboutPage from './page/About'
 import FQAPage from './page/FQA'
 import ContactPage from './page/Contact'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 export const history = createBrowserHistory()
 

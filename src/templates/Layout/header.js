@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable react/jsx-no-undef */
-import React, { Fragment, memo, useEffect } from 'react'
+import React, { Fragment, memo, useCallback, useEffect } from 'react'
 import { useState } from 'react'
 import * as Icon from 'react-feather'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import LinkComponents from '../../components/LinkComponent'
 import { getDetailUser, signOut } from '../../redux/Action/Auth_Action'
-import _ from 'lodash'
+import _, { flatMap } from 'lodash'
 import { getAllSearchResult } from '../../redux/Action/Movie_Action'
 import Search from '../../page/Search'
 import SearchResult from '../../components/SearchResult'
@@ -22,23 +22,34 @@ const Header = () => {
   const { userLogin, detailUser } = useSelector(state => state.ManagerAuthReducer)
   const { searchResult } = useSelector(state => state.ManagerMovieReducer)
   const { avatar, username, id } = detailUser
+  const { pathname } = useLocation()
 
   const onSearchSubmit = async term => {
     dispatch(getAllSearchResult(term))
     setOpenSearchResult(true)
   }
-  const clearResults = term => {
-    if (term === '') {
-      setOpenSearchResult(false)
-    }
-  }
+  const clearResults = useCallback(() => {
+    setOpenSearchResult(false)
+  }, [pathname])
   useEffect(() => {
+    setOpenHamBurgerMenu(false)
+    setOpenProfileMenu(false)
+    setOpenSearch(false)
+
+    const screenWidth = window.innerWidth
+    function handleResize() {
+      if (screenWidth >= 1024) {
+        setOpenHamBurgerMenu(false)
+      }
+    }
+    window.addEventListener('resize', handleResize)
     if (_.isEmpty(userLogin)) {
       return ''
     } else {
       return dispatch(getDetailUser(userLogin.payload.id))
     }
-  }, [userLogin])
+  }, [userLogin, dispatch, pathname])
+
   const renderLogin = () => {
     if (_.isEmpty(userLogin)) {
       return (

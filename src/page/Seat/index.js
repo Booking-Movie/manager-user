@@ -30,7 +30,7 @@ const Seat = props => {
             <div className="flex flex-row sm:flex-col flex-1 gap-x-5">
               <div className="text-center">
                 {cinema.seats.map((seat, index) => {
-                  let gheDaDat = `border-2 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] lg:m-3 sm:m-1 text-xs rounded-lg font-semibold bg-[rgb(123,122,122)]`
+                  let gheDaDat = `sear-booked`
                   let classSeatReserved = seat.status_seat === false ? `${gheDaDat}` : ''
                   let indexGheDD = danhSachGheDangDat.findIndex(seatId => seatId.id === seat.id)
 
@@ -59,15 +59,15 @@ const Seat = props => {
                 <div className="flex flex-wrap justify-center mt-10 gap-4">
                   <div className="flex items-center gap-x-2">
                     <p className="border-2 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] lg:m-3 sm:m-1 text-xs rounded-lg font-semibold bg-[rgb(123,122,122)]"></p>
-                    <h1>Default Seat</h1>
+                    <h3>Default Seat</h3>
                   </div>
                   <div className="flex items-center gap-x-2">
                     <p className="border-2 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] lg:m-3 sm:m-1 text-xs rounded-lg font-semibold bg-[rgb(18,176,18)]"></p>
-                    <h1>Terrible Seat</h1>
+                    <h3>Terrible Seat</h3>
                   </div>
                   <div className="flex items-center gap-x-2">
                     <p className="border-2 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] lg:m-3 sm:m-1 text-xs rounded-lg font-semibold bg-[#C0C0C0]"></p>
-                    <h1>Disable Seat</h1>
+                    <h3>Disable Seat</h3>
                   </div>
                 </div>
               </div>

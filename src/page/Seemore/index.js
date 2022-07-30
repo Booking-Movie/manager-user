@@ -11,8 +11,8 @@ const SeeMore = props => {
     dispatch(getAllMovieSeemoreAction(id))
   }, [])
   return (
-    <div className="px-20 md:px-10 sm:px-5 mt-20 flex flex-col gap-6">
-      <h1 className="font-semibold text-heading-4">{id === 'NowShowing' ? 'NOW SHOWING' : 'COMMING SOON'}</h1>
+    <div className="width margin-top">
+      <h1 className="mb-6">{id === 'NowShowing' ? 'NOW SHOWING' : 'COMMING SOON'}</h1>
       <SeemoreList movies={seeMore} />
     </div>
   )

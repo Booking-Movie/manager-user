@@ -14,21 +14,21 @@ const DetailMovie = props => {
   }, [dispatch, movie.movie_id])
   return (
     <>
-      <div className="flex flex-col gap-4 item">
-        <div className="flex flex-row sm:flex-col gap-x-8 ">
-          <img src={movie.image_movie} className="h-96 w-80 sm:w-full sm:mb-3 text-center rounded-lg" alt="desktop" />
-          <div className="flex flex-col gap-4 items-start text-lg">
-            <h1 className="font-semibold text-4xl">{movie.name_movie?.toUpperCase()}</h1>
-            <div className="flex flex-row gap-x-2 ">
-              <h2 className="font-semibold ">Release date:</h2>
+      <div className="detail">
+        <div className="detail-container">
+          <img src={movie.image_movie} className="detail-container_image" alt="desktop" />
+          <div className="detail-content">
+            <h1>{movie.name_movie?.toUpperCase()}</h1>
+            <div className="detail-content_info">
+              <h3>Release date:</h3>
               <p>{moment(movie?.comming_data).format('MMM Do YY')}</p>
             </div>
-            <div className="flex flex-row gap-x-2 ">
-              <h2 className="font-semibold ">Nation:</h2>
+            <div className="detail-content_info ">
+              <h3>Nation:</h3>
               <p>{movie.nation}</p>
             </div>
-            <div className="flex flex-row gap-x-2 flex-wrap">
-              <h2 className="font-semibold ">Actor:</h2>
+            <div className="detail-content_info flex-wrap">
+              <h3>Actor:</h3>
               {movie.actor?.map((actor, index) => {
                 return (
                   <Fragment key={index}>
@@ -37,8 +37,8 @@ const DetailMovie = props => {
                 )
               })}
             </div>
-            <div className="flex flex-row gap-x-2 flex-wrap">
-              <h2 className="font-semibold ">Director:</h2>
+            <div className="detail-content_info flex-wrap">
+              <h3>Director:</h3>
               {directorList.map((director, index) => {
                 return (
                   <Fragment key={index}>
@@ -47,12 +47,12 @@ const DetailMovie = props => {
                 )
               })}
             </div>
-            <div className="flex flex-row gap-x-2 ">
-              <h2 className="font-semibold ">Time Show:</h2>
+            <div className="detail-content_info">
+              <h3>Time Show:</h3>
               <p>{movie.time_show}</p>
             </div>
-            <div className="flex flex-row gap-x-2 items-center justify-center">
-              <h2 className="font-semibold ">Evaluate:</h2>
+            <div className="detail-content_info">
+              <h3>Evaluate:</h3>
               <p>
                 <MovieEvaluate evaluate={movie} />
               </p>
@@ -60,7 +60,7 @@ const DetailMovie = props => {
           </div>
         </div>
         <div className="flex flex-col gap-2 mb-10">
-          <h2 className="font-semibold">Description</h2>
+          <h3>Description</h3>
           <p>{movie.des_movie}</p>
         </div>
       </div>

@@ -32,8 +32,8 @@ const SeemoreCard = props => {
         <img src={image_movie} className="w-full h-full relative" alt="desktop" />
         <div className="card-content card-trainform">
           <div className="card-info">
-            <h1 className="card-info_title">{name_movie.toUpperCase()}</h1>
-            <h3 className="card-info_nation">
+            <h2>{name_movie.toUpperCase()}</h2>
+            <h3 className="my-2">
               NATION: {nation}
               <i className="fas fa-dharmachakra"></i>
             </h3>

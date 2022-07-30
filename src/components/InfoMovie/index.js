@@ -36,44 +36,44 @@ const InfoMovie = props => {
       {infoMovie.map(info => {
         return (
           <>
-            <h1 className="text-center text-3xl">{info?.name_movie}</h1>
-            <h1>
-              <span className="text-lg font-semibold word-wrap">Location: </span>
-              {`${info.name_cinema} - ${info.address}`}
-            </h1>
-            <h1>
-              <span className="text-lg">Theater: </span> {info.code_theater}
-            </h1>
-            <h1>
-              <span className="text-lg ">Date: </span> {moment(info.start_date).format('MMM Do YY')}
-            </h1>
-            <h1>
-              <span className="text-lg ">Time: </span>
-              {moment(info.time_start, 'HH:mm:ss').format('HH:mm')}
-            </h1>
+            <h1 className="text-center uppercase">{info?.name_movie}</h1>
+            <div className="flex gap-x-2">
+              <h3>Location: </h3>
+              <p> {`${info.name_cinema} - ${info.address}`}</p>
+            </div>
+            <div className="flex gap-x-2">
+              <h3>Theater: </h3>
+              <p>{info.code_theater}</p>
+            </div>
+            <div className="flex gap-x-2">
+              <h3>Date: </h3>
+              <p>{moment(info.start_date).format('MMM Do YY')}</p>
+            </div>
+            <div className="flex gap-x-2">
+              <h3>Time: </h3>
+              <p>{moment(info.time_start, 'HH:mm:ss').format('HH:mm')}</p>
+            </div>
           </>
         )
       })}
-      <div className="flex gap-x-1 text-lg">
-        <h1 className=" font-semibold">Username: </h1>
-        <span>{username}</span>
+      <div className="flex gap-x-2">
+        <h3>Username: </h3>
+        <p>{username}</p>
       </div>
-      <div className="flex gap-x-1 text-lg">
-        <h1 className="font-semibold">Price: </h1>
+      <div className="flex gap-x-2">
+        <h3>Price: </h3>
         {danhSachGheDangDat.reduce((tongTien, ghe, index) => {
           return (tongTien += ghe.price)
         }, 0)}
         đ
       </div>
       <div className="flex gap-2 items-center flex-wrap text-lg">
-        <h1 className="break-normal font-semibold">Seat Booking: </h1>
+        <h3>Seat Booking: </h3>
         {danhSachGheDangDat.map((seat, index) => {
           return (
             <div key={index} className="flex">
               {''}
-              <button className="flex justify-center items-center font-semibold rounded-lg bg-green-500 w-[50px] h-[50px]">
-                {seat.name_seat}
-              </button>
+              <button className="seat-booking">{seat.name_seat}</button>
             </div>
           )
         })}
