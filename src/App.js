@@ -15,6 +15,7 @@ import FQAPage from './page/FQA'
 import ContactPage from './page/Contact'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import Signup from './page/Signinup'
 
 export const history = createBrowserHistory()
 
@@ -23,6 +24,7 @@ function App() {
     <Router history={history}>
       <Switch>
         <Route path="/sign-in" exact component={Signin} />
+        <Route path="/sign-up" exact component={Signup} />
         <UserTempalete path="/" exact Component={Home} />
         <UserTempalete path="/profile/:id" exact Component={Profile} />
         <UserTempalete path="/news" exact Component={NewsPage} />

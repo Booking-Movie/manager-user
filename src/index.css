@@ -15,9 +15,6 @@
   li {
     @apply w-full;
   }
-  h1 {
-    @apply font-semibold;
-  }
   .display {
     @apply text-6xl font-semibold;
   }
@@ -235,5 +232,21 @@
   }
   .detail-content_info {
     @apply flex flex-row gap-x-2 items-center justify-center;
+  }
+  .signup-container {
+    @apply flex flex-col justify-center bg-white rounded-3xl p-6 z-[100];
+    @apply sm:w-[calc(100%-48px)] md:w-[calc(84%-48px)] lg:w-[calc(52%-48px)];
+  }
+  .btn-disabled {
+    @apply px-7 py-4 bg-[#E3E3E3]  text-white  rounded-lg font-semibold transition-all;
+  }
+  .label-warning {
+    @apply px-2 py-1 text-orange-400 bg-orange-100 rounded-[4px];
+  }
+  .label-success {
+    @apply px-2 py-1 text-[#34D399] bg-[#CCF4E5] rounded-[4px];
+  }
+  .label-error {
+    @apply px-2 py-1 text-[#FB7185] bg-[#FEDBE0] rounded-[4px];
   }
 }

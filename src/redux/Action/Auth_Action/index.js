@@ -38,3 +38,16 @@ export const getDetailUser = id => {
     }
   }
 }
+
+export const signUp = (formData, callBack) => {
+  return async dispatch => {
+    try {
+      const result = await managerAuthService.signUp(formData)
+      if (result.status === 201) {
+        callBack()
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}

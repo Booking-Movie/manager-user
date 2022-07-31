@@ -72,7 +72,7 @@ const Signin = () => {
         <p className="text-center">
           Don't have an account?
           <span className="font-semibold text-slate-500 hover:text-black">
-            <NavLink to="/signup">Register now</NavLink>
+            <NavLink to="/sign-up">Register now</NavLink>
           </span>
         </p>
       </div>
