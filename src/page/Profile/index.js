@@ -5,7 +5,7 @@ const Profile = () => {
   const detailUser = useSelector(state => state.ManagerAuthReducer.detailUser)
   const { avatar, username, email, phone, address } = detailUser
   return (
-    <div className="my-10 flex justify-center gap-5 sm:px-5">
+    <div className="my-[96px] flex justify-center gap-5 sm:px-5">
       <div className="flex flex-col gap-y-8">
         <div className="flex flex-col gap-5 justify-center items-center">
           {avatar ? (

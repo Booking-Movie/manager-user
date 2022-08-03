@@ -25,10 +25,10 @@
     @apply font-semibold text-heading-5;
   }
   h3 {
-    @apply font-medium text-subtitle;
+    @apply font-semibold text-subtitle;
   }
   p {
-    @apply text-subtitle;
+    @apply font-normal text-body;
   }
 }
 
@@ -161,7 +161,7 @@
     @apply gap-y-4 col-span-12 text-center text-lg font-semibold;
   }
   .card {
-    @apply gap-y-5 h-[240px] sm:col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 overflow-hidden relative justify-end cursor-pointer capitalize rounded-md bg-red-500 object-cover text-white  mb-5;
+    @apply gap-y-5 h-[240px] sm:col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 overflow-hidden relative justify-end cursor-pointer capitalize rounded-md bg-red-500 object-cover text-white;
   }
   .card-content {
     @apply absolute p-2 gap-y-5 flex h-[80%] sm:h-[85%]  w-full top-[200px];
@@ -186,16 +186,16 @@
     @apply mb-7;
   }
   .new {
-    @apply flex flex-row relative gap-y-5 h-auto sm:flex-col md:flex-col sm:col-span-12 md:col-span-6 lg:col-span-6 xl:col-span-4 cursor-pointer rounded-xl text-white shadow-lg hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 border-2;
+    @apply relative w-full gap-y-5 h-auto sm:flex-col md:flex-col sm:col-span-12 md:col-span-6 lg:col-span-6 xl:col-span-4 cursor-pointer rounded-xl text-white shadow-lg hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 border-2;
   }
   .new-image_content {
     @apply object-fill w-full h-60 lg:rounded-bl-xl lg:rounded-tl-xl md:rounded-tl-xl md:rounded-tr-xl sm:rounded-tl-xl sm:rounded-tr-xl;
   }
   .new-image {
-    @apply w-full h-60 max-h-96 overflow-hidden;
+    @apply w-full h-auto max-h-96 overflow-hidden;
   }
   .new-info {
-    @apply flex flex-col p-4 leading-normal flex-wrap;
+    @apply p-4 leading-normal flex-wrap;
   }
   .new-model {
     @apply flex flex-col gap-5;
@@ -248,5 +248,26 @@
   }
   .label-error {
     @apply px-2 py-1 text-[#FB7185] bg-[#FEDBE0] rounded-[4px];
+  }
+  .about-introduce_text {
+    @apply mb-6;
+  }
+  .about-introduce_text:last-child {
+    @apply mb-0;
+  }
+  .about-introduce {
+    @apply my-6;
+  }
+  .about-room_text {
+    @apply mb-6;
+  }
+  .about-room_text:last-child {
+    @apply lg:mb-0;
+  }
+  .about-room_text:first-child {
+    @apply mt-6;
+  }
+  .contact-info {
+    @apply rounded-md shadow-shadowbox_2 p-6 w-full;
   }
 }

@@ -16,7 +16,7 @@ export const SimpleSlider = props => {
     setShowEditPromotionModal(false)
   }, [])
   return (
-    <div key={newList.new_id} className="slider-movie mb-8">
+    <div key={newList.new_id} className="slider-movie">
       <div id="carousel" className="p-4 border-2 bg-gray-100 rounded-tl-3xl rounded-br-3xl">
         <Button
           onClick={handleShowEditPromotionModal}

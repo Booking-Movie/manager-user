@@ -11,10 +11,10 @@ const NewsPage = props => {
     dispatch(getAllNewAction())
   }, [])
   return (
-    <>
-      <div className="px-10 sm:px-5 mt-20">
-        <h1 className=" text-4xl font-semibold my-6">NEWS MOVIE</h1>
-        <div className="grid grid-cols-12 gap-4">
+    <div className="width">
+      <div className="mb-[96px]">
+        <h1>NEWS MOVIE</h1>
+        <div className="grid grid-cols-12 gap-4 my-6">
           {newList
             .filter(item => {
               return item.type_name === 'Movie'
@@ -23,15 +23,15 @@ const NewsPage = props => {
               return <NewInfoList newItem={listNews} />
             })}
         </div>
-        <div className="text-center mt-4 font-semibold text-lg hover:">
+        <div className="text-center mt-4 font-semibold text-lg">
           <NavLink exact to="news">
             <button className="btn-secondary">See All News Movie</button>
           </NavLink>
         </div>
       </div>
-      <div className="px-10 sm:px-5 mt-20">
-        <h1 className=" text-4xl font-semibold my-6">NEWS DISCOUNT</h1>
-        <div className="grid grid-cols-12 gap-4">
+      <div className="mb-[96px]">
+        <h1 className="my-6">NEWS DISCOUNT</h1>
+        <div className="grid grid-cols-12 gap-4 my-6">
           {newList
             .filter(item => {
               return item.type_name === 'Discount '
@@ -46,9 +46,9 @@ const NewsPage = props => {
           </NavLink>
         </div>
       </div>
-      <div className="px-10 sm:px-5 mt-20">
-        <h1 className=" text-4xl font-semibold my-6">NEWS MOVIE</h1>
-        <div className="grid grid-cols-12 gap-4">
+      <div>
+        <h1 className="my-6">NEWS RECRUIT</h1>
+        <div className="grid grid-cols-12 gap-4 my-6">
           {newList
             .filter(item => {
               return item.type_name === 'Recruit'
@@ -63,7 +63,7 @@ const NewsPage = props => {
           </NavLink>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

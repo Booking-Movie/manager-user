@@ -85,7 +85,7 @@ const FQAPage = () => {
         {faqs.map((faq, i) => {
           return <FaqComponent faq={faq} index={i} toggleFAQ={toggleFAQ} />
         })}
-        <div className="my-14">
+        <div className="my-[96px]">
           <h1 className="text-2xl my-4">NOW COMMING</h1>
           <MovieSlider movies={movieShowingList} />
         </div>
