@@ -176,10 +176,10 @@
     @apply w-[100%]  px-2 py-3 text-xs text-black font-semibold bg-[#FFFFFF] rounded-xl;
   }
   .slider-movie {
-    @apply pr-3 sm:pr-0;
+    @apply px-3 sm:px-0;
   }
-  .slider-movie:last-child {
-    @apply sm:pl-0;
+  .slider-movie:first {
+    @apply sm:px-0 md:pr-0;
   }
   .footer-email,
   .footer-info {
@@ -231,7 +231,7 @@
     @apply flex flex-col gap-4 items-start text-lg;
   }
   .detail-content_info {
-    @apply flex flex-row gap-x-2 items-center justify-center;
+    @apply flex flex-row gap-x-2 items-center;
   }
   .signup-container {
     @apply flex flex-col justify-center bg-white rounded-3xl p-6 z-[100];

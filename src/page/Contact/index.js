@@ -20,7 +20,7 @@ const ContactPage = () => {
     <>
       <div className="width mt-6">
         <h1 className="my-6 uppercase">Contact Us</h1>
-        <div className="flex justify-between gap-x-4 mb-[96px]">
+        <div className="flex justify-between sm:flex-col md:flex-col  gap-4 mb-[96px]">
           <div className="contact-info">
             <h3>Address</h3>
             <div className="flex items-center gap-x-3">
