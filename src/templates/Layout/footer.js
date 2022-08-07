@@ -33,7 +33,7 @@ const Footer = () => {
             <NavLink to="/contact">Contact</NavLink>
           </li>
           <li className="hover:text-orange-600">
-            <NavLink to="/fqa">FQA'S</NavLink>
+            <NavLink to="/fqa">FAQ'S</NavLink>
           </li>
         </ul>
       </div>

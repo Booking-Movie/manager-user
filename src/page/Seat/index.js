@@ -5,7 +5,7 @@ import InfoMovie from '../../components/InfoMovie'
 import { DAT_VE } from '../../redux/Action/Action_Type/movie'
 import { getAllSeatInShowtimeAction } from '../../redux/Action/Movie_Action'
 import { createAction } from '../../redux/Action/Type'
-
+import '../../App.css'
 const Seat = props => {
   const dispatch = useDispatch()
   const { seatList, danhSachGheDangDat } = useSelector(state => state.ManagerMovieReducer)
@@ -25,10 +25,11 @@ const Seat = props => {
     <>
       {seatList.map(cinema => {
         return (
-          <div className="lg:px-20">
-            <h1 className="p-[13px]">{cinema.code_theater}</h1>
-            <div className="flex flex-row sm:flex-col flex-1 gap-x-5">
+          <div className="width">
+            <h2 className="mb-6 uppercase">{cinema.code_theater}</h2>
+            <div className="flex flex-row sm:flex-col md:flex-col lg:space-x-24 sm:space-y-8 md:space-y-8 flex-1">
               <div className="text-center">
+                <h2 className="screen uppercase">Screen</h2>
                 {cinema.seats.map((seat, index) => {
                   let gheDaDat = `sear-booked`
                   let classSeatReserved = seat.status_seat === false ? `${gheDaDat}` : ''
@@ -52,11 +53,11 @@ const Seat = props => {
                       >
                         {seat.name_seat}
                       </button>
-                      {(index + 1) % 12 === 0 ? <br /> : ''}
+                      {(index + 1) % 10 === 0 ? <br /> : ''}
                     </Fragment>
                   )
                 })}
-                <div className="flex flex-wrap justify-center mt-10 gap-4">
+                <div className="flex flex-wrap justify-center sm:justify-start mt-10 gap-4">
                   <div className="flex items-center gap-x-2">
                     <p className="border-2 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] lg:m-3 sm:m-1 text-xs rounded-lg font-semibold bg-[rgb(123,122,122)]"></p>
                     <h3>Default Seat</h3>
@@ -71,7 +72,7 @@ const Seat = props => {
                   </div>
                 </div>
               </div>
-              <div className="w-[30%] max-w-[30%] sm:w-[100%] sm:max-w-[100%] mx-auto">
+              <div>
                 <InfoMovie cinema={cinema} showtime_id={id} />
               </div>
             </div>

@@ -14,12 +14,22 @@ export const getAllNewAction = () => {
     }
   }
 }
-export const cancelSeatBookingAction = username => {
+export const cancelSeatBookingAction = paymentList => {
   return async dispatch => {
     try {
-      await managerNewsService.cancelBooking(username)
+      await managerNewsService.updateStatusSeat(paymentList)
     } catch (error) {
       console.log(error)
     }
   }
 }
+export const updateStatusBookingAction = user_id => {
+  return async dispatch => {
+    try {
+      await managerNewsService.updateStatusBooking(user_id)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+

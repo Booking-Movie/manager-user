@@ -8,8 +8,11 @@ export class ManagerNewsService extends baseService {
   getAllNew = () => {
     return this.get(`api/v1/news`)
   }
-  cancelBooking = username => {
-    return this.put(`api/v1/booking/${username}`)
+  updateStatusSeat = paymentList => {
+    return this.put(`api/v1/booking/update-status-seat`, paymentList)
+  }
+  updateStatusBooking = user_id => {
+    return this.post(`api/v1/payment/${user_id}`)
   }
 }
 

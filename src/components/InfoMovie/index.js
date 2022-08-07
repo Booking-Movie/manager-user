@@ -18,25 +18,24 @@ const InfoMovie = props => {
     dispatch(getInfoMovieAction(id))
   }, [dispatch, cinema_id, movie_id, id])
 
-  const handleBooking = async () => {
+  const handleBooking = () => {
     const ticket = new InfoTicket()
     ticket.movie_id = movie_id
     ticket.user_id = userLogin.payload.id
     ticket.cinema_id = cinema_id
     ticket.showtime_id = props.showtime_id
-    ticket.user_booking = userLogin.payload.username
-    ticket.danhSachVe = await danhSachGheDangDat
-    await dispatch(bookingTicketAction(ticket, payment))
+    ticket.danhSachVe = danhSachGheDangDat
+    dispatch(bookingTicketAction(ticket, payment))
   }
   const payment = () => {
-    history.push(`payment/${cinema_id}`, infoMovie)
+    history.push(`payment/${props.showtime_id}`, infoMovie)
   }
   return (
-    <div className="flex flex-col gap-6 px-4 sm:py-5">
+    <div className="flex flex-col gap-6">
       {infoMovie.map(info => {
         return (
           <>
-            <h1 className="text-center uppercase">{info?.name_movie}</h1>
+            <h1 className="text-center sm:text-left uppercase">{info?.name_movie}</h1>
             <div className="flex gap-x-2">
               <h3>Location: </h3>
               <p> {`${info.name_cinema} - ${info.address}`}</p>
@@ -78,7 +77,7 @@ const InfoMovie = props => {
           )
         })}
       </div>
-      <Button onClick={handleBooking} className="btn-primary tracking-wider my-14">
+      <Button onClick={handleBooking} className="btn-primary tracking-wider mt-14">
         BOOKING TICKET
       </Button>
     </div>

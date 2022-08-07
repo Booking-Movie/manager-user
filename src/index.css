@@ -63,7 +63,7 @@
     @apply flex justify-center items-center relative z-[90] w-full;
   }
   .hamburger-menu_open {
-    @apply flex flex-col fixed items-center w-[20%] sm:w-[100%] right-[0px] top-0 h-[100vh] transition-all p-6 bg-white text-subtitle font-semibold z-0 shadow-shadowbox;
+    @apply flex flex-col fixed items-center w-[20%] md:w-[45%] sm:w-[100%] right-[0px] top-0 h-[100vh] transition-all p-6 bg-white text-subtitle font-semibold z-0 shadow-shadowbox;
   }
   .hamburger-menu_lg {
     @apply flex-row gap-x-6 static items-center shadow-none py-0;
@@ -127,7 +127,7 @@
     @apply flex justify-center items-center font-semibold rounded-lg bg-green-500 w-[50px] h-[50px];
   }
   .sear-booked {
-    @apply border-2 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] lg:m-3 sm:m-1 text-xs rounded-lg font-semibold bg-[rgb(123,122,122)];
+    @apply border-2 w-[50px] h-[50px] lg:w-[50px] lg:h-[50px] m-[6px] text-xs rounded-lg font-semibold bg-[rgb(123,122,122)];
   }
   /* .slick-list {
     @apply w-auto !important;

@@ -4,14 +4,13 @@ import moment from 'moment'
 import Label from '../Label'
 import Select from '../Select'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { USER_LOGIN } from '../../util/setting/config'
 
 const ItemShowTime = props => {
   const { filterCinema, handleSubmit, filteredList } = props
   const history = useHistory()
   const id = history.location.pathname.slice(14)
   const [cinema, setCinema] = useState('')
-  const { userLogin } = useSelector(state => state.ManagerAuthReducer)
   const day = new Date()
   const newTime = moment(day, 'HH:mm:ss').format('HH:mm')
   const newDate = moment(day).format('DD/MM/YYYY')
@@ -64,29 +63,15 @@ const ItemShowTime = props => {
                               key={time.id}
                               className="gap-y-5 sm:col-span-4 md:col-span-2 lg:col-span-2 xl:col-span-1"
                             >
-                              {userLogin !== '' ? (
-                                <NavLink
-                                  to={`/booking-page/seat/${time.id}`}
-                                  className={`${
-                                    moment(time.time_start, 'HH:mm:ss').format('HH:mm') <= newTime
-                                      ? 'pointer-events-none text-gray-400'
-                                      : 'hover:bg-black hover:text-white hover:border-black'
+                              <NavLink
+                                to={!localStorage.getItem(USER_LOGIN) ? `/sign-in` : `/booking-page/seat/${time.id}`}
+                                className={`${moment(time.time_start, 'HH:mm:ss').format('HH:mm') <= newTime
+                                  ? 'pointer-events-none text-gray-400'
+                                  : 'hover:bg-black hover:text-white hover:border-black'
                                   } rounded-lg tracking-[1px]  w-full px-2 py-2 text-lg text-black  font-semibold border-2 transition-colors button-tranform`}
-                                >
-                                  {moment(time.time_start, 'HH:mm:ss').format('HH:mm')}
-                                </NavLink>
-                              ) : (
-                                <NavLink
-                                  to="/sign-in"
-                                  className={`${
-                                    moment(time.time_start, 'HH:mm:ss').format('HH:mm') <= newTime
-                                      ? 'pointer-events-none text-gray-400'
-                                      : 'hover:bg-black hover:text-white hover:border-black'
-                                  } rounded-lg tracking-[1px]  w-full px-2 py-2 text-lg text-black  font-semibold border-2 transition-colors button-tranform`}
-                                >
-                                  {moment(time.time_start, 'HH:mm:ss').format('HH:mm')}
-                                </NavLink>
-                              )}
+                              >
+                                {moment(time.time_start, 'HH:mm:ss').format('HH:mm')}
+                              </NavLink>
                             </div>
                           ))}
                       </div>
@@ -115,29 +100,15 @@ const ItemShowTime = props => {
                               key={time.id}
                               className="gap-y-5 sm:col-span-4 md:col-span-2 lg:col-span-2 xl:col-span-1 "
                             >
-                              {userLogin !== '' ? (
-                                <NavLink
-                                  to={`/booking-page/seat/${time.id}`}
-                                  className={`${
-                                    moment(time.time_start, 'HH:mm:ss').format('HH:mm') < newTime
-                                      ? 'pointer-events-none text-gray-400'
-                                      : 'hover:bg-black hover:text-white hover:border-black'
+                              <NavLink
+                                to={!localStorage.getItem(USER_LOGIN) ? `/sign-in` : `/booking-page/seat/${time.id}`}
+                                className={`${moment(time.time_start, 'HH:mm:ss').format('HH:mm') <= newTime
+                                  ? 'pointer-events-none text-gray-400'
+                                  : 'hover:bg-black hover:text-white hover:border-black'
                                   } rounded-lg tracking-[1px]  w-full px-2 py-2 text-lg text-black  font-semibold border-2 transition-colors button-tranform`}
-                                >
-                                  {moment(time.time_start, 'HH:mm:ss').format('HH:mm')}
-                                </NavLink>
-                              ) : (
-                                <NavLink
-                                  to="/sign-in"
-                                  className={`${
-                                    moment(time.time_start, 'HH:mm:ss').format('HH:mm') < newTime
-                                      ? 'pointer-events-none text-gray-400'
-                                      : 'hover:bg-black hover:text-white hover:border-black'
-                                  } rounded-lg tracking-[1px]  w-full px-2 py-2 text-lg text-black  font-semibold border-2 transition-colors button-tranform`}
-                                >
-                                  {moment(time.time_start, 'HH:mm:ss').format('HH:mm')}
-                                </NavLink>
-                              )}
+                              >
+                                {moment(time.time_start, 'HH:mm:ss').format('HH:mm')}
+                              </NavLink>
                             </div>
                           ))}
                       </div>
@@ -148,7 +119,8 @@ const ItemShowTime = props => {
             </>
           )}
         </>
-      )}
+      )
+      }
     </>
   )
 }

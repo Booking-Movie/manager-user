@@ -8,7 +8,7 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import LinkComponents from '../../components/LinkComponent'
 import { getDetailUser, signOut } from '../../redux/Action/Auth_Action'
-import _, { flatMap } from 'lodash'
+import _ from 'lodash'
 import { getAllSearchResult } from '../../redux/Action/Movie_Action'
 import Search from '../../page/Search'
 import SearchResult from '../../components/SearchResult'
@@ -24,13 +24,14 @@ const Header = () => {
   const { avatar, username, id } = detailUser
   const { pathname } = useLocation()
 
+
   const onSearchSubmit = async term => {
     dispatch(getAllSearchResult(term))
     setOpenSearchResult(true)
   }
   const clearResults = useCallback(() => {
     setOpenSearchResult(false)
-  }, [pathname])
+  }, [])
   useEffect(() => {
     setOpenHamBurgerMenu(false)
     setOpenProfileMenu(false)
@@ -114,9 +115,8 @@ const Header = () => {
             </div>
             <Search onSearchSubmit={term => onSearchSubmit(term)} clearResults={term => clearResults(term)} />
             <div
-              className={`flex flex-col gap-5 absolute w-[480px] top-[72px] max-h-[350px] h-auto sm:w-[100%]  overflow-auto transition-all p-6 bg-white text-subtitle font-semibold z-0 shadow-lg ${
-                openSearchResult ? '' : 'hidden'
-              } `}
+              className={`flex flex-col gap-5 absolute w-[480px] top-[72px] max-h-[350px] h-auto sm:w-[100%]  overflow-auto transition-all p-6 bg-white text-subtitle font-semibold z-0 shadow-lg ${openSearchResult ? '' : 'hidden'
+                } `}
             >
               {searchResult.map(result => {
                 return <SearchResult result={result} />
@@ -163,6 +163,11 @@ const Header = () => {
                         </LinkComponents>
                       </li>
                       <li>
+                        <LinkComponents link={'/about'} title="About">
+                          <Icon.Home size={32} color="black" />
+                        </LinkComponents>
+                      </li>
+                      <li>
                         <LinkComponents link={'/news'} title="News">
                           <Icon.Info size={32} color="black" />
                         </LinkComponents>
@@ -172,9 +177,13 @@ const Header = () => {
                           <Icon.PhoneCall size={32} color="black" />
                         </LinkComponents>
                       </li>
+                      <li>
+                        <LinkComponents link={'/fqa'} title="Faq's">
+                          <Icon.PhoneCall size={32} color="black" />
+                        </LinkComponents>
+                      </li>
                     </ul>
                   </div>
-
                   <div className="">
                     <div className="flex justify-center items-center">
                       <div className="my-3 h-[1px] bg-[#E8E8E8] m-4 w-[100%]" />

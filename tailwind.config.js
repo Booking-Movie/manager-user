@@ -24,7 +24,7 @@ module.exports = {
         'heading-5': '1.424rem',
         subtitle: '1.125rem',
         body: '1rem',
-        footer: '0.889rem',
+        footer: '0.889rem'
       },
       backgroundImage: {
         'hero-img': "url('/public/images/movie-login.jpg')"

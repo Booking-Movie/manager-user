@@ -21,10 +21,10 @@ export class ManagerMovieService extends baseService {
     return this.get(`api/v1/movie/info-movie/${id}`)
   }
   createBooking = form => {
-    return this.post(`api/v1/booking`, form)
+    return this.post(`api/v1/booking/booking-ticket`, form)
   }
   getAllBooking = id => {
-    return this.get(`api/v1/booking/${id}`)
+    return this.get(`api/v1/booking/get-all-booking/${id}`)
   }
   getAllSeemore = id => {
     return this.get(`api/v1/movie/${id}`)

@@ -21,7 +21,7 @@ export const signOut = () => {
     dispatch({
       type: REMOVE_USER
     })
-    return window.location.reload()
+    return (window.location.href = '/')
   }
 }
 

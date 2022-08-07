@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .App {
   text-align: center;
 }
@@ -39,4 +35,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+.screen {
+  border-bottom: 50px solid rgba(0, 0, 0, 0.19);
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  height: 0;
+  width: 100%;
+  margin-bottom: 32px;
+  line-height: 50px;
+}
+.paypal-button-container > * {
+  visibility: hidden;
+}
+#my-custom-button {
+  pointer-events: none;
 }
