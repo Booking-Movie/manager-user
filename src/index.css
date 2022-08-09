@@ -75,7 +75,7 @@
     @apply block;
   }
   .profile-menu {
-    @apply flex flex-col gap-y-6 p-4 sm:w-[60%] md:w-[40%] lg:w-[20%] absolute top-[92px] right-0 bg-white lg:items-center text-subtitle font-semibold shadow-shadowbox lg:shadow-none;
+    @apply flex flex-col gap-y-6 p-4 sm:w-[60%] md:w-[40%] lg:w-[20%] absolute top-[92px] right-0 bg-white lg:items-center text-subtitle font-semibold shadow-shadowbox;
   }
   .btn-infomation_user {
     @apply flex flex-row gap-x-3 items-center;

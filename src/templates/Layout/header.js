@@ -41,6 +41,7 @@ const Header = () => {
     function handleResize() {
       if (screenWidth >= 1024) {
         setOpenHamBurgerMenu(false)
+        setOpenProfileMenu(false)
       }
     }
     window.addEventListener('resize', handleResize)

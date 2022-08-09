@@ -17,7 +17,8 @@ export const getAllNewAction = () => {
 export const cancelSeatBookingAction = paymentList => {
   return async dispatch => {
     try {
-      await managerNewsService.updateStatusSeat(paymentList)
+      const result = await managerNewsService.updateStatusSeat(paymentList)
+      console.log("🚀 ~ file: index.js ~ line 21 ~ result", result.data.id)
     } catch (error) {
       console.log(error)
     }

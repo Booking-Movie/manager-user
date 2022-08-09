@@ -8,10 +8,12 @@ import { getAllMovieAction } from "../../redux/Action/Movie_Action"
 import { getAllNewAction } from '../../redux/Action/New_Action'
 import * as Icon from 'react-feather'
 
+
 const ContactPage = () => {
   const dispatch = useDispatch()
   const { newList } = useSelector(state => state.ManagerNewsReducer)
   const { movieShowingList } = useSelector(state => state.ManagerMovieReducer)
+
   useEffect(() => {
     dispatch(getAllNewAction())
     dispatch(getAllMovieAction())

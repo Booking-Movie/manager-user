@@ -8,6 +8,9 @@ export class ManagerPaymentService extends baseService {
   cancelBookingSeat = booking_seat => {
     return this.put(`api/v1/payment/cancel-booking`, booking_seat)
   }
+  sendEmail = paymentList => {
+    return this.post(`api/v1/send-email`, paymentList)
+  }
 }
 
 export const managerPaymentService = new ManagerPaymentService()

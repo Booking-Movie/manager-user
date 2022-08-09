@@ -20,6 +20,12 @@ export class Seat {
 export class Payment {
   user_id = ''
   user_booking = ''
+  email = ''
+  name_movie = ''
+  name_cinema = ''
+  time_start = ''
+  start_date = ''
+  code_theater = ''
   data = []
   booking_seat = []
   constructor() { }
