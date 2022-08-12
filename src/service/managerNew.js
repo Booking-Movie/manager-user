@@ -11,8 +11,8 @@ export class ManagerNewsService extends baseService {
   updateStatusSeat = paymentList => {
     return this.put(`api/v1/booking/update-status-seat`, paymentList)
   }
-  updateStatusBooking = user_id => {
-    return this.post(`api/v1/payment/${user_id}`)
+  updateStatusBooking = paymentList => {
+    return this.put(`api/v1/payment`, paymentList)
   }
 }
 

@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
-import { useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { cancelSeatBookingAction, updateStatusBookingAction } from '../../redux/Action/New_Action'
-import { sendEmailAction } from '../../redux/Action/Paymet_Action'
+import { updateStatusSeatAction } from '../../redux/Action/New_Action'
+import { createPaymentAction, sendEmailAction } from '../../redux/Action/Paymet_Action'
 import { Payment } from '../../_core/model'
 import './style.css'
 
@@ -22,6 +22,14 @@ const PaypalButton = props => {
   const sendEmail = useCallback((paymentList) => {
     dispatch(sendEmailAction(paymentList))
   }, [dispatch])
+
+  const createPayment = useCallback((paymentList) => {
+    dispatch(createPaymentAction(paymentList))
+  }, [dispatch])
+
+  const updateStatusSeat = useCallback((paymentList) => {
+    dispatch(updateStatusSeatAction(paymentList))
+  }, [dispatch])
   if (paidFor) {
     const paymentList = new Payment()
     paymentList.user_id = userLogin.payload.id
@@ -31,19 +39,20 @@ const PaypalButton = props => {
     paymentList.time_start = time_start
     paymentList.start_date = start_date
     paymentList.code_theater = code_theater
+    paymentList.total = total
     paymentList.data = data
     paymentList.booking_seat = booking_seat
     paymentList.user_booking = username
-    dispatch(cancelSeatBookingAction(paymentList))
-    dispatch(updateStatusBookingAction(userLogin.payload.id))
+    // dispatch(updateStatusBookingAction(paymentList))
+    updateStatusSeat(paymentList)
+    // createPayment(paymentList)
     sendEmail(paymentList)
-    return < Redirect to={`/booking-page/seat/${props.listAllBooking[0].showtime_id}`} />
+    return <Redirect to={`/booking-page/seat/${props.listAllBooking[0].showtime_id}`} />
   }
 
   if (error) {
     alert(error)
   }
-  console.log('🚀 ~ file: index.js ~ line 6 ~ PaypalButton ~ total', total)
   return (
     <PayPalScriptProvider>
       <PayPalButtons
@@ -86,4 +95,4 @@ const PaypalButton = props => {
   )
 }
 
-export default PaypalButton
+export default memo(PaypalButton)

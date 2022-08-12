@@ -1,8 +1,9 @@
-import axios from 'axios'
+/* eslint-disable jsx-a11y/img-redundant-alt */
+/* eslint-disable prettier/prettier */
 import moment from 'moment'
-import { useCallback, useEffect } from 'react'
+import { Fragment, memo, useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, Redirect, useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { getAllBookingAction } from '../../redux/Action/Movie_Action'
 import { cancelSeatBookingAction } from '../../redux/Action/Paymet_Action'
 import { Button } from '../Button'
@@ -12,34 +13,20 @@ const Payment = props => {
   const dispatch = useDispatch()
   const { listAllBooking } = useSelector(state => state.ManagerMovieReducer)
   const { pathname } = useLocation()
-  console.log('🚀 ~ file: index.js ~ line 13 ~ listAllBooking', listAllBooking)
-  const handleSubmit = () => {
-    const fetchMovie = () => {
-      axios({
-        url: `http://localhost:7000/api/v1/payment`,
-        method: 'POST'
-      })
-        .then(res => {
-          console.log(res)
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    }
-    fetchMovie()
-  }
-  const handleCancelBooking = booking_seat => {
-    dispatch(cancelSeatBookingAction(booking_seat))
-  }
   const { id } = props.match.params
+
+  const handleCancelBooking = useCallback(() => {
+    dispatch(cancelSeatBookingAction(listAllBooking[0]?.booking_seat))
+  }, [listAllBooking, dispatch])
+
   useEffect(() => {
     dispatch(getAllBookingAction(id))
-  }, [dispatch, id])
+  }, [dispatch, id, pathname])
+
   return (
-    <>
+    <Fragment>
       <div className="payment">
         {listAllBooking?.map(info => {
-          console.log("🚀 ~ file: index.js ~ line 112 ~ info", info)
           return (
             <div key={info.id} className="payment-content">
               <div className="payment-content_title">
@@ -85,7 +72,7 @@ const Payment = props => {
                     console.log('🚀 ~ file: index.js ~ line 88 ~ {info.booking_seat.map ~ seat', seat)
                     return (
                       <>
-                        <span className="flex justify-center items-center font-semibold rounded-lg bg-green-500 w-[50px] h-[50px]">
+                        <span key={index} className="flex justify-center items-center font-semibold rounded-lg bg-green-500 w-[50px] h-[50px]">
                           {seat.seat_booking}
                         </span>
                       </>
@@ -101,20 +88,21 @@ const Payment = props => {
                 <PaypalButton listAllBooking={listAllBooking} className="btn-primary w-full">
                   Payment
                 </PaypalButton>
-                <NavLink
-                  className="w-[20%] text-center"
-                  to={`/booking-page/seat/${listAllBooking[0].showtime_id}`}
-                >
-                  <Button onClick={handleCancelBooking(info.booking_seat)} className="btn-delete w-full min-w-[200px] max-w-[750px] min-h-[35px]">Cancel</Button>
+                <NavLink className="w-[20%] text-center" to={`/booking-page/seat/${listAllBooking[0].showtime_id}`}>
+                  <Button
+                    onClick={handleCancelBooking}
+                    className="btn-delete w-full min-w-[200px] max-w-[750px] min-h-[35px]"
+                  >
+                    Cancel
+                  </Button>
                 </NavLink>
               </div>
             </div>
           )
         })}
-
       </div>
-    </>
+    </Fragment>
   )
 }
 
-export default Payment
+export default memo(Payment)

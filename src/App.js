@@ -17,6 +17,8 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Signup from './page/Signinup'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
+import { TICKET } from './util/setting/config'
+import Ticket from './page/Ticket'
 
 export const history = createBrowserHistory()
 
@@ -38,6 +40,7 @@ function App() {
           <UserTempalete path="/booking-page/:id" exact Component={BookingPage} />
           <UserTempalete path="/booking-page/seat/:id" exact Component={Seat} />
           <UserTempalete path="/booking-page/seat/payment/:id" exact Component={Payment} />
+          <UserTempalete path="/ticket" exact Component={Ticket} />
         </Switch>
       </Router>
     </PayPalScriptProvider>

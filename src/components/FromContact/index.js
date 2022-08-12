@@ -1,24 +1,27 @@
+/* eslint-disable prettier/prettier */
 import { Button } from '../Button'
 import InputComponent from '../Input'
 import Label from '../Label'
 import * as Icon from 'react-feather'
-import React, { useRef } from 'react';
+import React, { useRef } from 'react'
 import emailjs from '@emailjs/browser'
 
 const ContactFrom = () => {
-  const form = useRef();
+  const form = useRef()
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  const sendEmail = e => {
+    e.preventDefault()
 
-    emailjs.sendForm('service_564hf6n', 'template_ukdfcds', form.current, 'xHrAKatZLgYJA7wke')
-      .then((result) => {
-        console.log(result.text);
+    emailjs.sendForm('service_564hf6n', 'template_ukdfcds', form.current, 'xHrAKatZLgYJA7wke').then(
+      result => {
+        console.log(result.text)
         window.location.reload()
-      }, (error) => {
-        console.log(error.text);
-      });
-  };
+      },
+      error => {
+        console.log(error.text)
+      }
+    )
+  }
   return (
     <>
       <div className="rounded-md shadow-shadowbox_2 p-6">

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const GET_ALL_MOVIES = 'GET_ALL_MOVIES'
 export const GET_MOVIES_NOW_COMMING = 'GET_MOVIES_NOW_COMMING'
 export const GET_MOVIES_COMMING_SOON = 'GET_MOVIES_COMMING_SOON'
@@ -20,3 +21,6 @@ export const SEARCH_RESULT = 'SEARCH_RESULT'
 export const SIGNIN_ERROR = 'SIGNIN_ERROR'
 export const GET_ALL_NEW = 'GET_ALL_NEW'
 export const GET_ALL_DIRECTOR = 'GET_ALL_DIRECTOR'
+
+
+export const GET_ALL_BOOKING_BY_USER_ID = 'GET_ALL_BOOKING_BY_USER_ID '

@@ -20,7 +20,7 @@ export const getAllMovieAction = () => {
       const result = await managerMovieService.getAllMovie()
       dispatch({
         type: GET_ALL_MOVIES,
-        payload: result.data
+        payload: result.data.payload
       })
     } catch (error) {
       console.log(error)
@@ -110,7 +110,7 @@ export const bookingTicketAction = (form, callBack) => {
   return async dispatch => {
     try {
       const result = await managerMovieService.createBooking(form)
-      localStorage.setItem(TICKET, form)
+      console.log("🚀 ~ file: index.js ~ line 113 ~ bookingTicketAction ~ result", result)
       await dispatch(getAllSeatInShowtimeAction(form.showtime_id))
       await dispatch({ type: BOOKING_FINISH })
       if (result.status === 200) {

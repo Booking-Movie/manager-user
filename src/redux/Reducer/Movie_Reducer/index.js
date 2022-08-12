@@ -65,7 +65,7 @@ const ManagerMovieReducer = (state = stateDefault, { type, payload }) => {
       } else {
         danhSachGheCapNhap.push(payload)
       }
-      return { ...state, danhSachGheDangDat: danhSachGheCapNhap }
+      return { ...state, danhSachGheDangDat: danhSachGheCapNhap, danhSachGheKhachDat: danhSachGheCapNhap }
     }
     case LIST_BOOKING: {
       state.listBooking = payload

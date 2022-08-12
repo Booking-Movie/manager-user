@@ -14,7 +14,7 @@ export const getAllNewAction = () => {
     }
   }
 }
-export const cancelSeatBookingAction = paymentList => {
+export const updateStatusSeatAction = paymentList => {
   return async dispatch => {
     try {
       const result = await managerNewsService.updateStatusSeat(paymentList)
@@ -24,10 +24,10 @@ export const cancelSeatBookingAction = paymentList => {
     }
   }
 }
-export const updateStatusBookingAction = user_id => {
+export const updateStatusBookingAction = paymentList => {
   return async dispatch => {
     try {
-      await managerNewsService.updateStatusBooking(user_id)
+      const result = await managerNewsService.updateStatusBooking(paymentList)
     } catch (error) {
       console.log(error)
     }

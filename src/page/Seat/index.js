@@ -22,7 +22,7 @@ const Seat = props => {
     }
   }
   return (
-    <>
+    <Fragment>
       {seatList.map(cinema => {
         return (
           <div className="width">
@@ -79,7 +79,7 @@ const Seat = props => {
           </div>
         )
       })}
-    </>
+    </Fragment>
   )
 }
 

@@ -83,6 +83,14 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
+              <NavLink to={`/ticket`}>
+                <Button className="flex gap-x-5 items-center p-2">
+                  <Icon.Film size={32} color="black" />
+                  <h1 className="text-lg font-semibold sm:text-base">Info Ticket</h1>
+                </Button>
+              </NavLink>
+            </li>
+            <li>
               <div className="flex items-center gap-x-6">
                 <Button
                   className="flex gap-x-5 items-center p-2 "
