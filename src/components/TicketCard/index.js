@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 import moment from 'moment'
 const TicketCard = props => {
-  console.log("🚀 ~ file: index.js ~ line 3 ~ props", props)
   const { name_movie, name_cinema, start_date, time_start, booking_seat, code_theater } = props.booking
 
   return (

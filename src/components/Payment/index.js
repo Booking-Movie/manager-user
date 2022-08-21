@@ -69,7 +69,6 @@ const Payment = props => {
                 <div className="flex flex-wrap items-center gap-3 text-lg">
                   <h3>Seat Booking: </h3>
                   {info.booking_seat?.map((seat, index) => {
-                    console.log('🚀 ~ file: index.js ~ line 88 ~ {info.booking_seat.map ~ seat', seat)
                     return (
                       <>
                         <span key={index} className="flex justify-center items-center font-semibold rounded-lg bg-green-500 w-[50px] h-[50px]">

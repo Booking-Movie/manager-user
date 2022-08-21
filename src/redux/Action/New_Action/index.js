@@ -18,7 +18,6 @@ export const updateStatusSeatAction = paymentList => {
   return async dispatch => {
     try {
       const result = await managerNewsService.updateStatusSeat(paymentList)
-      console.log("🚀 ~ file: index.js ~ line 21 ~ result", result.data.id)
     } catch (error) {
       console.log(error)
     }

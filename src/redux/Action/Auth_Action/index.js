@@ -31,7 +31,7 @@ export const getDetailUser = id => {
       const result = await managerAuthService.findDetailUser(id)
       dispatch({
         type: GET_DETAIL_USER,
-        payload: result.data
+        payload: result.data.payload
       })
     } catch (error) {
       console.log(error)

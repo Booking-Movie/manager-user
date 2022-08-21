@@ -110,7 +110,6 @@ export const bookingTicketAction = (form, callBack) => {
   return async dispatch => {
     try {
       const result = await managerMovieService.createBooking(form)
-      console.log("🚀 ~ file: index.js ~ line 113 ~ bookingTicketAction ~ result", result)
       await dispatch(getAllSeatInShowtimeAction(form.showtime_id))
       await dispatch({ type: BOOKING_FINISH })
       if (result.status === 200) {

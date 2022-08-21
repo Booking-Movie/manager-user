@@ -9,7 +9,6 @@ import '../../App.css'
 const Seat = props => {
   const dispatch = useDispatch()
   const { seatList, danhSachGheDangDat } = useSelector(state => state.ManagerMovieReducer)
-  console.log('🚀 ~ file: index.js ~ line 13 ~ seatList', seatList)
   const { userLogin } = useSelector(state => state.ManagerAuthReducer)
   const { id } = props.match.params
 

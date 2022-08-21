@@ -14,24 +14,23 @@ const InfoMovie = props => {
   const { infoMovie, danhSachGheDangDat } = useSelector(state => state.ManagerMovieReducer)
   const { userLogin } = useSelector(state => state.ManagerAuthReducer)
   const { username } = userLogin.payload
-  const { cinema_id, movie_id, id } = props.cinema
+  const { cinema_id, id } = props.cinema
   useEffect(() => {
     dispatch(getInfoMovieAction(id))
-  }, [dispatch, cinema_id, movie_id, id])
+  }, [dispatch, cinema_id, id])
 
   const handleBooking = useCallback(() => {
     const ticket = new InfoTicket()
-    ticket.movie_id = movie_id
+    ticket.movie_id = infoMovie[0].movie_id
     ticket.user_id = userLogin.payload.id
     ticket.cinema_id = cinema_id
     ticket.showtime_id = props.showtime_id
     ticket.danhSachVe = danhSachGheDangDat
-    console.log("🚀 ~ file: index.js ~ line 23 ~ handleBooking ~ ticket", ticket)
     const payment = () => {
       history.push(`payment/${props.showtime_id}`)
     }
     dispatch(bookingTicketAction(ticket, payment))
-  }, [cinema_id, danhSachGheDangDat, dispatch, movie_id, history, props.showtime_id, userLogin.payload.id])
+  }, [cinema_id, danhSachGheDangDat, dispatch, history, props.showtime_id, userLogin.payload.id, infoMovie])
 
   return (
     <div className="flex flex-col gap-6">

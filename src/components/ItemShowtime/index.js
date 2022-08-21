@@ -8,6 +8,7 @@ import { USER_LOGIN } from '../../util/setting/config'
 
 const ItemShowTime = props => {
   const { filterCinema, handleSubmit, filteredList } = props
+  console.log("🚀 ~ file: index.js ~ line 11 ~ filteredList", filteredList)
   const history = useHistory()
   const id = history.location.pathname.slice(14)
   const [cinema, setCinema] = useState('')

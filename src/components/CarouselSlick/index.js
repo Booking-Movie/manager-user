@@ -34,7 +34,6 @@ export const SimpleSlider = props => {
 }
 
 export const MovieSlider = props => {
-  console.log('🚀 ~ file: index.js ~ line 88 ~ props', props)
   const { movies } = props
   var sliderMovie = {
     className: 'slider variable-width',

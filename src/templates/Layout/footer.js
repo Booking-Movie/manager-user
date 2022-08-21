@@ -23,16 +23,16 @@ const Footer = () => {
       <div className="footer-info">
         <h2>General</h2>
         <ul className="flex flex-col gap-3">
-          <li className="hover:text-orange-600">
+          <li className="text-hover">
             <NavLink to="/about">About Us</NavLink>
           </li>
-          <li className="hover:text-orange-600">
+          <li className="text-hover">
             <NavLink to="/news">News</NavLink>
           </li>
-          <li className="hover:text-orange-600">
+          <li className="text-hover">
             <NavLink to="/contact">Contact</NavLink>
           </li>
-          <li className="hover:text-orange-600">
+          <li className="text-hover">
             <NavLink to="/fqa">FAQ'S</NavLink>
           </li>
         </ul>
@@ -40,13 +40,13 @@ const Footer = () => {
       <div className="footer-info">
         <h2>Customer Care</h2>
         <ul className="flex flex-col gap-3">
-          <li className="hover:text-orange-600">
+          <li className="text-hover">
             <NavLink to="/">Hotline: 1900 6016</NavLink>
           </li>
-          <li className="hover:text-orange-600">
+          <li className="text-hover">
             <NavLink to="/">Work time: 8:00am - 22:00PM</NavLink>
           </li>
-          <li className="hover:text-orange-600">
+          <li className="text-hover">
             <NavLink to="/">Email support: hoidap@gmail.com</NavLink>
           </li>
         </ul>

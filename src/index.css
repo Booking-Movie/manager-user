@@ -276,4 +276,7 @@
   .contact-info {
     @apply rounded-md shadow-shadowbox_2 p-6 w-full;
   }
+  .text-hover {
+    @apply text-[#495057] hover:text-[#212529];
+  }
 }

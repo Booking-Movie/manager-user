@@ -6,18 +6,18 @@ const AboutPage = () => {
         <h1 className="uppercase">About Us</h1>
         <div className="about-introduce">
           <p className="about-introduce_text">
-            Tính đến nay, <strong>Galaxy Cinema</strong> đã có gần 30 năm hình thành và phát triển, hệ thống rạp chiếu
-            phim đang có 18 cụm rạp trải khắp cả nước. <strong>Galaxy Cinema</strong> trở thành điểm đến quen thuộc cho
+            Tính đến nay, <strong>PLVH Cinema</strong> đã có gần 10 năm hình thành và phát triển, hệ thống rạp chiếu
+            phim đang có 18 cụm rạp trải khắp cả nước. <strong>PLVH Cinema</strong> trở thành điểm đến quen thuộc cho
             giới trẻ cả nước để tiếp cận nhanh nhất với các phim hay phim mới không chỉ Việt Nam hay Hollywood mà còn từ
             Hàn Quốc, Thái Lan, Nhật Bản…
           </p>
           <p className="about-introduce_text">
             Chẳng những nổi tiếng về chất lượng dịch vụ tốt, địa điểm đắc địa và nhân viên trẻ trung thân thiện,{' '}
-            <strong>Galaxy Cinema</strong> còn có nhiều chương trình khuyến mãi xuyên suốt năm và theo từng mùa phim.
+            <strong>PLVH Cinema</strong> còn có nhiều chương trình khuyến mãi xuyên suốt năm và theo từng mùa phim.
             Mỗi tuần, rạp có chương trình <strong>Happy Day</strong> – giá vé chỉ từ 50k. Mỗi thứ 2 đầu tiên hằng tháng,
             ra rạp xem phim <strong>Ngày Tri Ân</strong> sẽ đồng giá vé và miễn phí châm thêm bắp nước.
           </p>
-          <p className="about-introduce_text">Trở thành thành viên <strong>Galaxy Cinema</strong>, bạn sẽ nhận được hàng loạt đặc quyền. Ngoài tích Star đổi bắp nước, các G-Stars và X-Stars còn được miễn phí đổi vị bắp. Mỗi năm, <strong>Galaxy Cinema</strong> đều có chương trình tri ân siêu khủng cho các khách hàng thân thiết gồm nhiều phần quà, vé miễn phí hay bắp nước miễn phí.</p>
+          <p className="about-introduce_text">Trở thành thành viên <strong>PLVH Cinema</strong>, bạn sẽ nhận được hàng loạt đặc quyền. Ngoài tích Star đổi bắp nước, các G-Stars và X-Stars còn được miễn phí đổi vị bắp. Mỗi năm, <strong>PLVH Cinema</strong> đều có chương trình tri ân siêu khủng cho các khách hàng thân thiết gồm nhiều phần quà, vé miễn phí hay bắp nước miễn phí.</p>
         </div>
         <div className="about-room">
           <h1 className=" uppercase">Projection room technology</h1>

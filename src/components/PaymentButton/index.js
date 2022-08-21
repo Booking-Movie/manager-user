@@ -3,7 +3,7 @@ import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
 import { memo, useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { updateStatusSeatAction } from '../../redux/Action/New_Action'
+import { updateStatusBookingAction, updateStatusSeatAction } from '../../redux/Action/New_Action'
 import { createPaymentAction, sendEmailAction } from '../../redux/Action/Paymet_Action'
 import { Payment } from '../../_core/model'
 import './style.css'
@@ -30,6 +30,7 @@ const PaypalButton = props => {
   const updateStatusSeat = useCallback((paymentList) => {
     dispatch(updateStatusSeatAction(paymentList))
   }, [dispatch])
+
   if (paidFor) {
     const paymentList = new Payment()
     paymentList.user_id = userLogin.payload.id
@@ -43,7 +44,7 @@ const PaypalButton = props => {
     paymentList.data = data
     paymentList.booking_seat = booking_seat
     paymentList.user_booking = username
-    // dispatch(updateStatusBookingAction(paymentList))
+    dispatch(updateStatusBookingAction(paymentList))
     updateStatusSeat(paymentList)
     // createPayment(paymentList)
     sendEmail(paymentList)
