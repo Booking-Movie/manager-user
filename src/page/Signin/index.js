@@ -30,10 +30,6 @@ const Signin = () => {
     if (action.toString().includes('403')) {
       setHasError({ error: '403' })
     }
-
-    // else if (action.toString().includes('403')) {
-    //   setHasError({ error: "403" })
-    // }
   }
 
   const goToDashboard = () => {
@@ -44,6 +40,9 @@ const Signin = () => {
     //   goToDashboard()
     // }
   }, [])
+  // else if (action.toString().includes('403')) {
+  //   setHasError({ error: "403" })
+  // }
   return (
     <>
       <div className="bg-hero-img bg-cover bg-center bg-no-repeat w-[100vw] h-[100vh] relative z-0 blur" />

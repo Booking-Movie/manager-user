@@ -1,8 +1,6 @@
 import { managerMovieService } from '../../../service/managerMovie'
-import { TICKET } from '../../../util/setting/config'
 import {
   BOOKING_FINISH,
-  DETAIL_MOVIE,
   GET_ALL_BOOKING,
   GET_ALL_MOVIES,
   GET_ALL_MOVIES_COMMING_SOON,
@@ -78,19 +76,19 @@ export const getAllMovieCommingSoonAction = () => {
   }
 }
 
-export const getAllTimeOfMovieAction = id => {
-  return async dispatch => {
-    try {
-      const result = await managerMovieService.getAllTimeOfMovie(id)
-      dispatch({
-        type: DETAIL_MOVIE,
-        payload: result.data
-      })
-    } catch (error) {
-      console.log(error)
-    }
-  }
-}
+// export const getAllTimeOfMovieAction = id => {
+//   return async dispatch => {
+//     try {
+//       const result = await managerMovieService.getAllTimeOfMovie(id)
+//       dispatch({
+//         type: DETAIL_MOVIE,
+//         payload: result.data
+//       })
+//     } catch (error) {
+//       console.log(error)
+//     }
+//   }
+// }
 
 export const getInfoMovieAction = id => {
   return async dispatch => {

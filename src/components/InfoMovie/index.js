@@ -3,21 +3,23 @@ import moment from 'moment'
 import { memo, useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { connection } from '../..'
 import { bookingTicketAction, getInfoMovieAction } from '../../redux/Action/Movie_Action'
 import { InfoTicket } from '../../_core/model'
 import { Button } from '../Button'
 
 const InfoMovie = props => {
+  console.log("🚀 ~ file: index.js ~ line 11 ~ InfoMovie ~ props", props)
   const dispatch = useDispatch()
   const history = useHistory()
   const { infoMovie, danhSachGheDangDat } = useSelector(state => state.ManagerMovieReducer)
   const { userLogin } = useSelector(state => state.ManagerAuthReducer)
   const { username } = userLogin.payload
-  const { cinema_id, id } = props.cinema
+  const { id } = props.cinema
+  const { cinema_id } = props
+
   useEffect(() => {
     dispatch(getInfoMovieAction(id))
-  }, [dispatch, cinema_id, id])
+  }, [dispatch, id])
 
   const handleBooking = useCallback(() => {
     const ticket = new InfoTicket()
@@ -27,10 +29,10 @@ const InfoMovie = props => {
     ticket.showtime_id = props.showtime_id
     ticket.danhSachVe = danhSachGheDangDat
     const payment = () => {
-      history.push(`payment/${props.showtime_id}`)
+      history.push(`/payment/${cinema_id}/${props.showtime_id}`)
     }
     dispatch(bookingTicketAction(ticket, payment))
-  }, [cinema_id, danhSachGheDangDat, dispatch, history, props.showtime_id, userLogin.payload.id, infoMovie])
+  }, [danhSachGheDangDat, dispatch, history, props.showtime_id, userLogin.payload.id, infoMovie])
 
   return (
     <div className="flex flex-col gap-6">

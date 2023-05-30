@@ -5,7 +5,7 @@ export class InfoTicket {
   showtime_id = 0
   user_booking = ''
   danhSachVe = []
-  constructor() { }
+  constructor() {}
 }
 
 export class Seat {
@@ -13,11 +13,13 @@ export class Seat {
   price = ''
   showtime_id = ''
   status_seat = true
-  constructor() { }
+  constructor() {}
 }
 
 export class Payment {
   user_id = ''
+  movie_id = ''
+  cinema_id = ''
   user_booking = ''
   email = ''
   name_movie = ''
@@ -28,7 +30,6 @@ export class Payment {
   total = ''
   data = []
   booking_seat = []
-  constructor() { }
 }
 
 export class BookingMovie {
@@ -38,5 +39,5 @@ export class BookingMovie {
   user_id = 0
   movie_id = 0
   cinema_id = 0
-  constructor() { }
+  constructor() {}
 }

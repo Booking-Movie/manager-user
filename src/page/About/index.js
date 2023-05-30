@@ -13,11 +13,16 @@ const AboutPage = () => {
           </p>
           <p className="about-introduce_text">
             Chẳng những nổi tiếng về chất lượng dịch vụ tốt, địa điểm đắc địa và nhân viên trẻ trung thân thiện,{' '}
-            <strong>PLVH Cinema</strong> còn có nhiều chương trình khuyến mãi xuyên suốt năm và theo từng mùa phim.
-            Mỗi tuần, rạp có chương trình <strong>Happy Day</strong> – giá vé chỉ từ 50k. Mỗi thứ 2 đầu tiên hằng tháng,
-            ra rạp xem phim <strong>Ngày Tri Ân</strong> sẽ đồng giá vé và miễn phí châm thêm bắp nước.
+            <strong>PLVH Cinema</strong> còn có nhiều chương trình khuyến mãi xuyên suốt năm và theo từng mùa phim. Mỗi
+            tuần, rạp có chương trình <strong>Happy Day</strong> – giá vé chỉ từ 50k. Mỗi thứ 2 đầu tiên hằng tháng, ra
+            rạp xem phim <strong>Ngày Tri Ân</strong> sẽ đồng giá vé và miễn phí châm thêm bắp nước.
           </p>
-          <p className="about-introduce_text">Trở thành thành viên <strong>PLVH Cinema</strong>, bạn sẽ nhận được hàng loạt đặc quyền. Ngoài tích Star đổi bắp nước, các G-Stars và X-Stars còn được miễn phí đổi vị bắp. Mỗi năm, <strong>PLVH Cinema</strong> đều có chương trình tri ân siêu khủng cho các khách hàng thân thiết gồm nhiều phần quà, vé miễn phí hay bắp nước miễn phí.</p>
+          <p className="about-introduce_text">
+            Trở thành thành viên <strong>PLVH Cinema</strong>, bạn sẽ nhận được hàng loạt đặc quyền. Ngoài tích Star đổi
+            bắp nước, các G-Stars và X-Stars còn được miễn phí đổi vị bắp. Mỗi năm, <strong>PLVH Cinema</strong> đều có
+            chương trình tri ân siêu khủng cho các khách hàng thân thiết gồm nhiều phần quà, vé miễn phí hay bắp nước
+            miễn phí.
+          </p>
         </div>
         <div className="about-room">
           <h1 className=" uppercase">Projection room technology</h1>
@@ -26,9 +31,20 @@ const AboutPage = () => {
               <div className="grid grid-cols-2 gap-x-5 rounded-xl shadow-lg p-6">
                 <div className="col-span-1 md:col-span-2 sm:col-span-2 sm:w-full">
                   <h1 className="mb-6 uppercase">Công nghệ 3D</h1>
-                  <p className="about-room_text">So với công nghệ chiếu phim 2D Digital (Kỹ thuật số 2 chiều), công nghệ 3D Digital (Kỹ thuật số 3 chiều) cho phép khán giả cảm nhận thêm chiều sâu của hình ảnh, giúp cho không gian điện ảnh trở nên sống động như không gian thực mà chúng ta đang sống.</p>
-                  <p className="about-room_text">Phim 3D được quay từ tối thiểu hai máy cùng một lúc, từ hai góc nhìn khác nhau tương ứng với hoạt động của hai mắt người. Khi xem phim khán giả sẽ cần đeo kính 3D để lọc hình ảnh cho mỗi mắt, khi qua não bộ sẽ chập lại tạo thành hình ảnh không gian ba chiều.</p>
-                  <p className="about-room_text">Các phòng chiếu phim 3D Digital này đều sử dụng màn hình tráng bạc để giảm thiểu lượng hao hụt ánh sáng một cách tối đa.</p>
+                  <p className="about-room_text">
+                    So với công nghệ chiếu phim 2D Digital (Kỹ thuật số 2 chiều), công nghệ 3D Digital (Kỹ thuật số 3
+                    chiều) cho phép khán giả cảm nhận thêm chiều sâu của hình ảnh, giúp cho không gian điện ảnh trở nên
+                    sống động như không gian thực mà chúng ta đang sống.
+                  </p>
+                  <p className="about-room_text">
+                    Phim 3D được quay từ tối thiểu hai máy cùng một lúc, từ hai góc nhìn khác nhau tương ứng với hoạt
+                    động của hai mắt người. Khi xem phim khán giả sẽ cần đeo kính 3D để lọc hình ảnh cho mỗi mắt, khi
+                    qua não bộ sẽ chập lại tạo thành hình ảnh không gian ba chiều.
+                  </p>
+                  <p className="about-room_text">
+                    Các phòng chiếu phim 3D Digital này đều sử dụng màn hình tráng bạc để giảm thiểu lượng hao hụt ánh
+                    sáng một cách tối đa.
+                  </p>
                 </div>
                 <div className="col-span-1 md:col-span-2 sm:col-span-2 ">
                   <img className="rounded-lg w-full h-full" src="/images/92-10-t1200.jpg" alt="Technology 3D Image" />
@@ -110,21 +126,20 @@ const AboutPage = () => {
                 <div className="col-span-1 md:col-span-2 sm:col-span-2 sm:w-full">
                   <h1 className="mb-6 uppercase">Máy chiếu christie</h1>
                   <p className="about-room_text">
-                    Máy chiếu Christie là giải pháp hình ảnh cao cấp cho nhu cầu giải trí, với độ phân giải 1080p - 4k. ( có số điểm ảnh bề ngang cao gấp 4 lần so với chuẩn full HD)
+                    Máy chiếu Christie là giải pháp hình ảnh cao cấp cho nhu cầu giải trí, với độ phân giải 1080p - 4k.
+                    ( có số điểm ảnh bề ngang cao gấp 4 lần so với chuẩn full HD)
                   </p>
                   <p className="about-room_text">
-                    Ngoài ra máy còn mang đến cho khán giả những trải nghiệm hình ảnh chân thật hơn nhờ hệ thống thấu kính của mình
+                    Ngoài ra máy còn mang đến cho khán giả những trải nghiệm hình ảnh chân thật hơn nhờ hệ thống thấu
+                    kính của mình
                   </p>
-                  <p className="about-room_text">
-                    Đây thực sự là đỉnh cao trong các phòng chiếu
-                  </p>
+                  <p className="about-room_text">Đây thực sự là đỉnh cao trong các phòng chiếu</p>
                 </div>
                 <div className="col-span-1 md:col-span-2 sm:col-span-2 ">
                   <img className="rounded-lg w-full h-full" src="/images/sweetbox.jpg" alt="Sweetbox Image" />
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ const Payment = props => {
   const dispatch = useDispatch()
   const { listAllBooking } = useSelector(state => state.ManagerMovieReducer)
   const { pathname } = useLocation()
-  const { id } = props.match.params
+  const { id, cinema_id } = props.match.params
 
   const handleCancelBooking = useCallback(() => {
     dispatch(cancelSeatBookingAction(listAllBooking[0]?.booking_seat))
@@ -87,7 +87,7 @@ const Payment = props => {
                 <PaypalButton listAllBooking={listAllBooking} className="btn-primary w-full">
                   Payment
                 </PaypalButton>
-                <NavLink className="w-[20%] text-center" to={`/booking-page/seat/${listAllBooking[0].showtime_id}`}>
+                <NavLink className="w-[20%] text-center" to={`/booking-page/seat/${cinema_id}/${listAllBooking[0].showtime_id}`}>
                   <Button
                     onClick={handleCancelBooking}
                     className="btn-delete w-full min-w-[200px] max-w-[750px] min-h-[35px]"

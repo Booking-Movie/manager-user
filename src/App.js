@@ -24,7 +24,7 @@ export const history = createBrowserHistory()
 
 function App() {
   return (
-    <PayPalScriptProvider options={{ "client-id": process.env.CLIENT_ID }}>
+    <PayPalScriptProvider options={{ 'client-id': process.env.CLIENT_ID }}>
       <Router history={history}>
         <Switch>
           <Route path="/sign-in" exact component={Signin} />
@@ -38,8 +38,8 @@ function App() {
           <UserTempalete path="/contact" exact Component={ContactPage} />
           <UserTempalete path="/seemore" exact Component={SeeMore} />
           <UserTempalete path="/booking-page/:id" exact Component={BookingPage} />
-          <UserTempalete path="/booking-page/seat/:id" exact Component={Seat} />
-          <UserTempalete path="/booking-page/seat/payment/:id" exact Component={Payment} />
+          <UserTempalete path="/booking-page/seat/:cinema_id/:id" exact Component={Seat} />
+          <UserTempalete path="/payment/:cinema_id/:id" exact Component={Payment} />
           <UserTempalete path="/ticket" exact Component={Ticket} />
         </Switch>
       </Router>

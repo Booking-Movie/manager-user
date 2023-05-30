@@ -89,10 +89,10 @@ export const MovieSlider = props => {
   }
   return (
     <Slider {...sliderMovie}>
-      {movies.map(movies => {
+      {movies.map((movies, index) => {
         return (
           <div className="slider-movie">
-            <MovieCard movie={movies} />
+            <MovieCard key={index} movie={movies} />
           </div>
         )
       })}

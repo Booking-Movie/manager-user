@@ -10,7 +10,9 @@ const Seat = props => {
   const dispatch = useDispatch()
   const { seatList, danhSachGheDangDat } = useSelector(state => state.ManagerMovieReducer)
   const { userLogin } = useSelector(state => state.ManagerAuthReducer)
-  const { id } = props.match.params
+  const { id, cinema_id } = props.match.params
+
+  console.log('🚀 ~ file: index.js ~ line 14 ~ Seat ~ cinema_id', cinema_id)
 
   useEffect(() => {
     dispatch(getAllSeatInShowtimeAction(id))
@@ -72,7 +74,7 @@ const Seat = props => {
                 </div>
               </div>
               <div>
-                <InfoMovie cinema={cinema} showtime_id={id} />
+                <InfoMovie cinema_id={cinema_id} cinema={cinema} showtime_id={id} />
               </div>
             </div>
           </div>

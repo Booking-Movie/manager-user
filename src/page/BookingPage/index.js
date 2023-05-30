@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import DetailMovie from '../../components/DetailMovie'
 import ShowTime from '../../components/ShowTime'
 import { SliderNew } from '../../components/SliderNews'
-import { getAllTimeOfMovieAction, getDetailMovieAction } from '../../redux/Action/Movie_Action'
+import { getDetailMovieAction } from '../../redux/Action/Movie_Action'
 import { getAllNewAction } from '../../redux/Action/New_Action'
 
 const BookingPage = props => {
@@ -13,13 +13,13 @@ const BookingPage = props => {
   const { id } = props.match.params
   useEffect(() => {
     dispatch(getDetailMovieAction(id))
-    dispatch(getAllTimeOfMovieAction(id))
+    // dispatch(getAllTimeOfMovieAction(id))
     dispatch(getAllNewAction())
   }, [dispatch, id])
   return (
     <div className="width mt-6">
-      {detailMovie[0]?.map(movie => {
-        return <DetailMovie movie={movie} />
+      {detailMovie[0]?.map((movie, index) => {
+        return <DetailMovie key={index} movie={movie} />
       })}
       <ShowTime detailMovie={listTimeOfMovie} id={id} />
       <h1 className="px-3 text-3xl font-semibold my-6">PROMOTION</h1>

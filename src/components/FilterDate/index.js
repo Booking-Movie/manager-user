@@ -6,7 +6,6 @@ import Label from '../Label'
 const FilterDate = props => {
   const { handleFilterDate } = props
   const [date, setDate] = useState('')
-  console.log('🚀 ~ file: index.js ~ line 10 ~ date', date)
   useEffect(() => {
     if (date !== '') {
       handleFilterDate(date)

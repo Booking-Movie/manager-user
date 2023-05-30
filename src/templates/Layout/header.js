@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable react/jsx-no-undef */
 import React, { Fragment, memo, useCallback, useEffect } from 'react'
@@ -23,7 +24,6 @@ const Header = () => {
   const { searchResult } = useSelector(state => state.ManagerMovieReducer)
   const { avatar, username, id } = detailUser
   const { pathname } = useLocation()
-
 
   const onSearchSubmit = async term => {
     dispatch(getAllSearchResult(term))

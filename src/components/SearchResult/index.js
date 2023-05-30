@@ -12,7 +12,7 @@ const SearchResult = props => {
           <div className="flex flex-col gap-5">
             <div className="flex flex-row gap-x-4 ">
               <img src={image_movie} className="w-[100px] h-[100px]" />
-              <div className='flex flex-col items-start justify-center'>
+              <div className="flex flex-col items-start justify-center">
                 <h2>{name_movie}</h2>
                 <p>Date: {comming_data}</p>
                 <p>Time: {time_show}</p>

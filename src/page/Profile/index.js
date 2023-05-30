@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 const Profile = () => {
   const detailUser = useSelector(state => state.ManagerAuthReducer.detailUser)
+  console.log('🚀 ~ file: index.js ~ line 6 ~ Profile ~ detailUser', detailUser)
   const { avatar, username, email, phone, address, fullname } = detailUser
   return (
     <div className="my-[96px] flex justify-center gap-5 sm:px-5">
@@ -16,11 +17,18 @@ const Profile = () => {
           <h1 className="text-2xl font-semibold">{username}</h1>
         </div>
         <div className="flex flex-col gap-5">
-          <p>Full Name: {fullname}</p>
-          <p>Email: {email}</p>
-          <p>Address: {address}</p>
-          <p>CMND: 0123456789</p>
-          <p>Phone: {phone}</p>
+          <p>
+            <b>Full Name:</b> {fullname}
+          </p>
+          <p>
+            <b>Email:</b> {email}
+          </p>
+          <p>
+            <b>Address:</b> {address}
+          </p>
+          <p>
+            <b>Phone:</b> {phone}
+          </p>
         </div>
       </div>
     </div>

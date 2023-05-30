@@ -9,7 +9,7 @@ const FQAPage = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getAllMovieAction())
-  }, [])
+  }, [dispatch])
   const [faqs, setFAQS] = useState([
     {
       type: 'Question',
@@ -83,7 +83,7 @@ const FQAPage = () => {
       <div className="faqs width">
         <h1 className="text-2xl my-4">FAQS</h1>
         {faqs.map((faq, i) => {
-          return <FaqComponent faq={faq} index={i} toggleFAQ={toggleFAQ} />
+          return <FaqComponent faq={faq} index={i} key={i} toggleFAQ={toggleFAQ} />
         })}
         <div className="my-[96px]">
           <h1 className="text-2xl my-4">NOW COMMING</h1>

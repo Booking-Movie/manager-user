@@ -8,8 +8,8 @@ const SeemoreList = props => {
   return (
     <>
       <div className="grid grid-cols-12 gap-4 ">
-        {movies.map(movie => (
-          <SeemoreCard key={movie} movie={movie} />
+        {movies.map((movie, index) => (
+          <SeemoreCard key={index} movie={movie} />
         ))}
       </div>
     </>

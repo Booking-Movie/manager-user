@@ -9,7 +9,7 @@ const SeeMore = props => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getAllMovieSeemoreAction(id))
-  }, [])
+  }, [dispatch, id])
   return (
     <div className="width margin-top">
       <h1 className="mb-6">{id === 'NowShowing' ? 'NOW SHOWING' : 'COMMING SOON'}</h1>

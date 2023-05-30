@@ -10,7 +10,9 @@ import './style.css'
 
 const PaypalButton = props => {
   const dispatch = useDispatch()
-  const { total, name_movie, name_cinema, booking_seat, username, user_email, time_start, start_date, code_theater } = props.listAllBooking[0]
+  const { total, name_movie, name_cinema, booking_seat, username, user_email, time_start, start_date, code_theater, movie_id, cinema_id } = props.listAllBooking[0]
+  console.log("🚀 ~ file: index.js ~ line 14 ~ PaypalButton ~ cinema_id", cinema_id)
+  console.log("🚀 ~ file: index.js ~ line 14 ~ PaypalButton ~ props.listAllBooking[0]", props.listAllBooking[0])
   const [paidFor, setPaidFor] = useState(false)
   const { userLogin } = useSelector(state => state.ManagerAuthReducer)
   const [error, setError] = useState(null)
@@ -34,6 +36,8 @@ const PaypalButton = props => {
   if (paidFor) {
     const paymentList = new Payment()
     paymentList.user_id = userLogin.payload.id
+    paymentList.movie_id = movie_id
+    paymentList.cinema_id = cinema_id
     paymentList.email = user_email
     paymentList.name_movie = name_movie
     paymentList.name_cinema = name_cinema
@@ -46,9 +50,9 @@ const PaypalButton = props => {
     paymentList.user_booking = username
     dispatch(updateStatusBookingAction(paymentList))
     updateStatusSeat(paymentList)
-    // createPayment(paymentList)
+    createPayment(paymentList)
     sendEmail(paymentList)
-    return <Redirect to={`/booking-page/seat/${props.listAllBooking[0].showtime_id}`} />
+    return <Redirect to={`/booking-page/seat/${cinema_id}/${props.listAllBooking[0].showtime_id}`} />
   }
 
   if (error) {
@@ -81,7 +85,7 @@ const PaypalButton = props => {
         onApprove={async (data, action) => {
           const order = await action.order.capture()
           setData(order)
-          console.log('order', order)
+          // console.log('order', order)
           handleApprove(data.userId)
         }}
         onCancel={() => {
@@ -89,7 +93,7 @@ const PaypalButton = props => {
         }}
         onError={(err) => {
           setError(err)
-          console.log("Paypal Checkout On Error", err)
+          // console.log("Paypal Checkout On Error", err)
         }}
       />
     </PayPalScriptProvider>

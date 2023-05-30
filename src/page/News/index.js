@@ -9,7 +9,7 @@ const NewsPage = props => {
   const { newList } = useSelector(state => state.ManagerNewsReducer)
   useEffect(() => {
     dispatch(getAllNewAction())
-  }, [])
+  }, [dispatch])
   return (
     <div className="width">
       <div className="mb-[96px]">
@@ -19,8 +19,8 @@ const NewsPage = props => {
             .filter(item => {
               return item.type_name === 'Movie'
             })
-            .map(listNews => {
-              return <NewInfoList newItem={listNews} />
+            .map((listNews, index) => {
+              return <NewInfoList key={index} newItem={listNews} />
             })}
         </div>
         <div className="text-center mt-4 font-semibold text-lg">

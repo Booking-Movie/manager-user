@@ -16,6 +16,7 @@ export const signIn = (formData, callBack) => {
     }
   }
 }
+
 export const signOut = () => {
   return dispatch => {
     dispatch({
